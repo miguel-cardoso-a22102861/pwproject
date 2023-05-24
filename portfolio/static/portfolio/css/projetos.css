@@ -1,0 +1,31 @@
+/* 3 projetos? page */
+.projeto {
+    background-color: #07508144;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.projeto h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.projeto p {
+    margin-bottom: 10px;
+}
+
+.projeto img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.projeto a {
+    color: #010408;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projeto a:hover {
+    text-decoration: underline;
+}

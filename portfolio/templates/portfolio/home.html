@@ -1,0 +1,36 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+<h3>Titulo</h3>
+<p>texto texto texto texto texto texto texto </p>
+
+<article class="primeiro">
+    <p><b>
+            Hey! Sou o Miguel Cardoso e sempre gostei da área de computação e de jogos.
+            O que me levou a escolher o curso de engenharia informática foi a quantidade de elementos inseridos no
+            curso em que se pode
+            aprender acerca de computadores. Adorei ambas as arquiteturas de computadores.
+            Sou uma pessoa perspicaz, calmo, cooperativo e sonhador.
+            Quero trabalhar numa grande empresa, sempre tive interesse na Microsoft, em relação à área ainda não sei
+            bem
+            Gosto de música, produção musical, correr e jogos, incluido o desenvolvimento dos mesmos.
+
+    </p>
+</article>
+
+<div class="heropage">
+    <div class="fraseMotivacional">
+
+        <h1>Your brain has the power to modify your pain perception.</h1>
+        <h1>Change your business</h1>
+    </div>
+
+</div>
+{% load static %}
+<img src="{% static 'portfolio/images/imagem.jpg' %}">
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PW</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+</head>
+<header>
+    <div class="logo">Miguel Cardoso
+
+    </div>
+    <div class="hamburguer">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+        <ul>
+            <li>
+                <a href="{% url 'portfolio:home' %}" class="active">Hero Page</a>
+            </li>
+            <div class="dropdown">
+                <li><a href="{% url 'portfolio:licenciatura' %}">Sobre Mim</a></li>
+                <div class="dropdown-content">
+                    <a href="{% url 'portfolio:licenciatura' %" }>Licenciatura</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Educação</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Aptidões e competências pessoais</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Experiência profissional</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Interesses</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <li><a href="{% url 'portfolio:licenciatura' %}">Projetos</a></li>
+                <div class="dropdown-content">
+                    <a href="{% url 'portfolio:licenciatura' %}">Projetos da Universidade</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Projetos Pessoais</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Projetos TFC interessantes</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <li><a href="{% url 'portfolio:licenciatura' %}">Programação Web</a></li>
+                <div class="dropdown-content">
+                    <a href="{% url 'portfolio:licenciatura' %}">Tecnologias Existentes</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Laboratórios</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Notícias</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <li><a href="{% url 'portfolio:licenciatura' %}">Sobre este website</a></li>
+                <div class="dropdown-content">
+                    <a href="{% url 'portfolio:licenciatura' %}">Tecnologias Usadas</a>
+                    <a href="{% url 'portfolio:licenciatura' %}">Padrões Usados</a>
+                </div>
+            </div>
+            <li><a href="{% url 'portfolio:licenciatura' %}">Playground</a></li>
+            <li><a href="{% url 'portfolio:licenciatura' %}">Contactos</a></li>
+            <li><a href="#footer-bottom">Rodapé</a></li>
+        </ul>
+    </nav>
+
+
+
+
+
+</header>
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+<footer>
+    <div class="footer-bottom" id="footer-bottom">
+        <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+        </p>
+    </div>
+</footer>
+
+</html>
