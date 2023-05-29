@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PW</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
 </head>
@@ -56,6 +57,8 @@
             </div>
             <li><a href="{% url 'portfolio:licenciatura' %}">Playground</a></li>
             <li><a href="{% url 'portfolio:licenciatura' %}">Contactos</a></li>
+            <li><a href="{% url 'portfolio:tarefas' %}">Tarefas</a></li>
+            <li><a href="{% url 'portfolio:blog'}">Blog</a> </li>
             <li><a href="#footer-bottom">Rodapé</a></li>
         </ul>
     </nav>
@@ -69,11 +72,13 @@
     {% block main %}
     {% endblock main %}
 </main>
+<!--
 <footer>
     <div class="footer-bottom" id="footer-bottom">
         <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
         </p>
     </div>
 </footer>
+-->
 
 </html>

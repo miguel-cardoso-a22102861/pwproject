@@ -1,0 +1,34 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+{% for tarefa in tarefas %}
+<p>
+    {% if tarefa.prioridade == 1 %}
+    🟢
+
+
+    {% elif tarefa.prioridade == 2 %}
+    🟡
+
+
+    {% else %}
+    🔴
+
+
+    {% endif %}
+
+
+
+
+
+    {{ tarefa.titulo }}</p>
+
+{% endfor %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/tarefas.css' %}">
+<a href="{% url 'portfolio:tarefasNova' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+<a href="{% url 'portfolio:tarefasNova' %}" class="btn btn-success btn-block">+ Apagar Tarefa</a>
+
+
+
+{% endblock main %}

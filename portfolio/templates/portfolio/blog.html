@@ -1,0 +1,32 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+{% for post in blog %}
+<p>
+    {% if tarefa.prioridade == 1 %}
+    🟢
+
+
+    {% elif tarefa.prioridade == 2 %}
+    🟡
+
+
+    {% else %}
+    🔴
+
+
+    {% endif %}
+
+
+
+
+
+    {{ tarefa.titulo }}</p>
+
+{% endfor %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+
+
+
+{% endblock main %}
