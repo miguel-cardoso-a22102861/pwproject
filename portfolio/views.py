@@ -3,8 +3,8 @@ import datetime
 from django.http import HttpResponseRedirect
 
 from django.shortcuts import render
-from .models import Tarefa
-from .forms import TarefaForm
+from .models import Post, Tarefa
+from .forms import PostForm, TarefaForm
 
 
 # Create your views here.
@@ -47,6 +47,18 @@ def tarefas_page_view(request):
 def post_page_view(request):
     return render(request, 'portfolio/post.html')
 
+def postNovo_page_view(request):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:home'))
+    
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/blogNovo.html', context)
+        
+
 
 def tarefasNova_page_view(request):
     form = TarefaForm(request.POST or None)
@@ -85,3 +97,14 @@ def edita_tarefa_view(request, tarefa_id):
 def apaga_tarefa_view(request, tarefa_id):
     Tarefa.objects.get(id=tarefa_id).delete()
     return HttpResponseRedirect(reverse('portfolio:tarefas'))
+
+
+def blog_view(request):
+    posts = Post.objects.all()
+    context = {
+        'posts': posts,
+    }
+
+    return render(request, 'portfolio/blog.html', context)
+
+

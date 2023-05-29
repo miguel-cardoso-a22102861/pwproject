@@ -1,32 +1,22 @@
 {% extends 'portfolio/layout.html' %}
 {% block main %}
-{% for post in blog %}
+{% for post in posts %}
 <p>
-    {% if tarefa.prioridade == 1 %}
-    🟢
+    {{post.titulo}}
+</p>
+<div class="post">
+    <h2>{{ post.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ post.autor }}</p>
+    <p><strong>Data:</strong> {{ post.data }}</p>
+    <p>{{ post.descricao }}</p>
+    <p><a href="{{ post.link }}">Read more</a></p>
 
-
-    {% elif tarefa.prioridade == 2 %}
-    🟡
-
-
-    {% else %}
-    🔴
-
-
-    {% endif %}
-
-
-
-
-
-    {{ tarefa.titulo }}</p>
-
-{% endfor %}
+</div>
+  {% endfor %}
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
-
+<a href="{% url 'portfolio:blogNovo' %}" class="btn btn-success btn-block">Novo Post</a>
 
 
 {% endblock main %}

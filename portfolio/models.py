@@ -18,6 +18,7 @@ class Post(models.Model):
     titulo = models.CharField(max_length= 100)
     descricao = models.TextField()
     link = models.CharField(max_length= 100)
+    
 
 
 
