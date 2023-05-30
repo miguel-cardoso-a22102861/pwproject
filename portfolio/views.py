@@ -1,4 +1,4 @@
-from audioop import reverse
+from django.urls import reverse
 import datetime
 from django.http import HttpResponseRedirect
 
@@ -92,7 +92,7 @@ def post_edita_view(request, post_id):
     if form.is_valid():
         form.save()
         context = {'form': form, 'post_id': post_id}
-        return render (request,'portfolio/blog.html', context)
+        return HttpResponseRedirect(reverse('portfolio:blog'))
 
     context = {'form': form, 'post_id': post_id}
 

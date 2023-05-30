@@ -49,3 +49,5 @@ class PostForm(ModelForm):
         helps_texts = {
             'prioridade': 'prioridade: baixa=1, media=2, alta=3',
         }
+
+    
