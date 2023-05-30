@@ -13,11 +13,12 @@ class Tarefa(models.Model):
 
 
 class Post(models.Model):
-    autor = models.CharField(max_length= 100)
+    
+    autor = models.CharField(max_length=100)
     data = models.DateTimeField(auto_now_add=True)
-    titulo = models.CharField(max_length= 100)
+    titulo = models.CharField(max_length=25)
     descricao = models.TextField()
-    link = models.CharField(max_length= 100)
+    link = models.CharField(max_length=100, blank=True)
     
 
 

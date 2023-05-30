@@ -2,7 +2,7 @@ from audioop import reverse
 import datetime
 from django.http import HttpResponseRedirect
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Post, Tarefa
 from .forms import PostForm, TarefaForm
 
@@ -49,9 +49,11 @@ def post_page_view(request):
 
 def postNovo_page_view(request):
     form = PostForm(request.POST or None)
+
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('portfolio:home'))
+        return redirect('portfolio:blog')
+    
     
 
     context = {'form': form}
@@ -79,24 +81,24 @@ def apaga_tarefa_view(request, tarefa_id):
     Tarefa.objects.get(id=tarefa_id).delete()
     return HttpResponseRedirect(reverse('portfolio:tarefas'))
 
-def post_novo_page_view(request):
-    form = TarefaForm(request.POST or None)
+def post_apaga_view(request, post_id):
+    Post.objects.get(id=post_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:blog'))
+
+def post_edita_view(request, post_id):
+    post = Post.objects.get(id=post_id)
+    form = PostForm(request.POST or None, instance=post)
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('portfolio:home'))
-    
+        context = {'form': form, 'post_id': post_id}
+        return render (request,'portfolio/blog.html', context)
 
-    context = {'form': form}
+    context = {'form': form, 'post_id': post_id}
 
-    return render(request, 'portfolio/tarefasNova.html', context)
+               
 
-def edita_tarefa_view(request, tarefa_id):
-    Tarefa.objects.get(id=tarefa_id).clean()
-
-def apaga_tarefa_view(request, tarefa_id):
-    Tarefa.objects.get(id=tarefa_id).delete()
-    return HttpResponseRedirect(reverse('portfolio:tarefas'))
+    return render(request, 'portfolio/blogEdita.html', context)
 
 
 def blog_view(request):

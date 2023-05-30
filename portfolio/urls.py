@@ -29,9 +29,10 @@ urlpatterns = [
     path('tarefas', views.tarefas_page_view, name='tarefas'),
     path('blog', views.blog_view, name='blog'),
     path('tarefasNova', views.tarefasNova_page_view, name='tarefasNova'),
-    path('blogNovo', views.postNovo_page_view, name='postNovo'),
+    path('postNovo', views.postNovo_page_view, name='postNovo'),
     path('edita_tarefa/<int:tarefa_id>', views.edita_tarefa_view, name='edita'),
     path('apaga_tarefa/<int:tarefa_id>', views.apaga_tarefa_view, name='apaga'),
-    
+    path('post_edita/<int:post_id>', views.post_edita_view, name='postEdita'),
+    path('post_apaga/<int:post_id>', views.post_apaga_view, name='postApaga'),
     
 ]
