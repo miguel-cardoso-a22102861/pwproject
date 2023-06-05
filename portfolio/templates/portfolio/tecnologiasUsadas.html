@@ -1,0 +1,37 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+{% for tecnologiasUsadas in tecnologiasUsadas %}
+
+<article class="primeiro">
+
+    <h1>
+        {{ tecnologiasUsadas.nome }}
+
+
+    </h1>
+    <h1>
+        {{ tecnologiasUsadas.anoDeCriacao}}
+    </h1>
+    <h1>
+        {{ tecnologiasUsadas.criador}}
+    </h1>
+    {{tecnologiasUsadas.siteOficial}}
+    <li><a> {{ tecnologiasUsadas.link }}</a></li>
+    <p>{{ tecnologiasUsadas.descricao }}</p>
+    {{ tecnologiasUsadas.imagem }}
+
+    <p>{{ tecnologiasUsadas.data }}</p>
+
+</article>
+
+
+
+{% endfor %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/tecnologiasUsadas.css' %}">
+
+
+{% endblock %}

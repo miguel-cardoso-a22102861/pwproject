@@ -3,7 +3,7 @@ import datetime
 from django.http import HttpResponseRedirect
 
 from django.shortcuts import redirect, render
-from .models import Post, Tarefa
+from .models import Post, Tarefa, TecnologiasPW
 from .forms import PostForm, TarefaForm
 
 
@@ -109,4 +109,12 @@ def blog_view(request):
 
     return render(request, 'portfolio/blog.html', context)
 
+
+def tecnologiasUsadas_view(request):
+    tecnologiasUsadas = TecnologiasPW.objects.all()
+    context = {
+        'tecnologiasUsadas': tecnologiasUsadas,
+    }
+
+    return render(request, 'portfolio/tecnologiasUsadas.html', context)
 

@@ -61,7 +61,7 @@ class Comentario(models.Model):
         return self.titulo
 
 
-class curso(models.Model):
+class Curso(models.Model):
     nome = models.CharField(max_length=50)
     descricao = models.TextField()
     carga_horaria = models.IntegerField()
@@ -88,7 +88,7 @@ class Projeto(models.Model):
     titulo = models.CharField(max_length=50)
     descricao = models.CharField(max_length=500)
     imagem = models.ImageField(upload_to='images/', blank=True)
-    anoRealizacao = models.IntegerField(max_length=3)
+    anoRealizacao = models.IntegerField()
     participantes = models.ManyToManyField(Pessoa, related_name='trabalhos')
     linkGithub = models.URLField(max_length=120, blank=True)
     videoYoutube = models.URLField(blank=True)
@@ -118,7 +118,7 @@ class AptidoesCompetencias(models.Model):
     def __str__(self):
         return self.nome
 
-class Curso(models.Model):
+class CursoModelo(models.Model):
     nome = models.CharField(max_length=50)
     descricao = models.TextField()
     cadeiras = models.ManyToManyField(Cadeira, related_name='cursos')
@@ -127,7 +127,7 @@ class Curso(models.Model):
     def __str__(self):
         return self.nome
 class Formacao(models.Model):
-    curso = models.ForeignKey(curso, on_delete=models.CASCADE, related_name='formacoes')
+    curso = models.ForeignKey(CursoModelo, on_delete=models.CASCADE, related_name='formacoes')
     local = models.CharField(max_length=50)
     imagemLogotipo = models.ImageField(upload_to='images/', blank=True)
 
@@ -159,8 +159,8 @@ class TFC(models.Model):
 
 class TecnologiasPW(models.Model):
     nome = models.CharField(max_length= 500)
-    anoDeCriacao = models.IntegerField(max_length= 4)
-    criador = models.OneToOneField(Pessoa)
+    anoDeCriacao = models.IntegerField()
+    criador = models.ManyToManyField(Pessoa, related_name='tecnologias', blank=True)
     logotipo = models.ImageField(upload_to='images/',blank=True)
     siteOficial = models.URLField(blank= False)
     linguagens = models.CharField(max_length= 500)
@@ -176,8 +176,8 @@ class LinkRepos(models.Model):
 
 class LaboratoriosPW(models.Model):
     linksRepos = models.ManyToManyField(LinkRepos, blank=False)
-    titulo = models.CharField(blank=False)
-    descricaoTopicos = models.CharField(blank=False)
+    titulo = models.CharField(max_length= 50, blank= False)
+    descricaoTopicos = models.CharField(max_length= 500)
 
 
     def __str__(self):
@@ -215,7 +215,7 @@ class Contacto(models.Model):
 
 class Rodape(models.Model):
     linkGithub = models.URLField(blank=False)
-    linkRepo = models.OneToOneField(LinkRepos, blank=False)
+    linkRepo = models.OneToOneField(LinkRepos, blank=False , on_delete=models.CASCADE, related_name='rodape')
     pythonAnywhere = models.URLField(blank=False)
     
     

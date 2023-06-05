@@ -34,5 +34,7 @@ urlpatterns = [
     path('apaga_tarefa/<int:tarefa_id>', views.apaga_tarefa_view, name='apaga'),
     path('post_edita/<int:post_id>', views.post_edita_view, name='postEdita'),
     path('post_apaga/<int:post_id>', views.post_apaga_view, name='postApaga'),
+    path('tecnologiasUsadas', views.tecnologiasUsadas_view, name='tecnologiasUsadas'),
+
     
 ]
