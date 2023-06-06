@@ -1,10 +1,6 @@
 {% extends 'portfolio/layout.html' %}
 {% block main %}
 {% for post in posts %}
-<p>
-  {{post.titulo}}
-
-</p>
 <div class="post">
   <h2>{{ post.titulo }}</h2>
   <p><strong>Autor:</strong> {{ post.autor }}</p>

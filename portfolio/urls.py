@@ -38,4 +38,6 @@ urlpatterns = [
     path('post_apaga/<int:post_id>', views.post_apaga_view, name='postApaga'),
     path('tecnologiasUsadas', views.tecnologiasUsadas_view, name='tecnologiasUsadas'),
     path('tfcs', views.tfcs_view, name='tfcs'),
+    path('projetosPessoais', views.projetosPessoais_view, name='projetosPessoais'),
+    
 ]

@@ -1,28 +1,12 @@
-main {
-    background-color: rgb(238, 248, 248);
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding: 25px 100px;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
-}
-
-main>* {
-    width: 250px;
-    height: 150px;
-    padding: 25px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 10px;
-    /* arredonda os cantos */
-    box-shadow: 5px 5px 15px grey;
-}
-
 /* blog.css */
+article.primeiro {
+    /* definindo altura e cor */
+    height: 80vh;
+    background: transparent;
+    padding: 0 4vw;
+    text-align: center;
+    font-size: 1.50rem;
+}
 
 .post {
     background-color: #f2f2f2;

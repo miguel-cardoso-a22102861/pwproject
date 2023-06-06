@@ -5,15 +5,23 @@
 {% for laboratorios in laboratorios %}
 
 
-<h1>Titulo</h1>
-{{ laboratorios.titulo }}
 
-<h1>
-    {{ laboratorios.descricaoTopicos}}
+<article class="primeiro">
     <h1>
-        {{ tecnologiasUsadas.anoDeCriacao}}
+        <p>Titulo</p>
+        {{ laboratorios.titulo}} <br>
+
+        {{laboratorios.linkRepos}} <br>
+
+        {{ laboratorios.descricaoTopicos}}
+
+
+        <h1>
+            {{ tecnologiasUsadas.anoDeCriacao}}
+        </h1>
     </h1>
-</h1>
+</article>
+
 {% endfor %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/laboratorios.css' %}">

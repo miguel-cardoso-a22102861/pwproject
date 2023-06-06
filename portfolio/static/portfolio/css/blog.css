@@ -1,55 +1,55 @@
 main {
-    background-color: rgb(238, 248, 248);
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding: 25px 100px;
+  background-color: rgb(238, 248, 248);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 25px 100px;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 main>* {
-    width: 250px;
-    height: 150px;
-    padding: 25px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 10px;
-    /* arredonda os cantos */
-    box-shadow: 5px 5px 15px grey;
+  width: 450px;
+  height: 300px;
+  padding: 25px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  /* arredonda os cantos */
+  box-shadow: 5px 5px 15px grey;
 }
+
 /* blog.css */
 
 .post {
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-bottom: 20px;
+}
 
-  .post h2 {
-    font-size: 24px;
-    margin-top: 0;
-  }
+.post h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
 
-  .post p strong {
-    font-weight: bold;
-  }
+.post p strong {
+  font-weight: bold;
+}
 
-  .post p {
-    margin-bottom: 10px;
-  }
-  
+.post p {
+  margin-bottom: 10px;
+}
 
-  .post a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .post a:hover {
-    text-decoration: underline;
-  }
-  
+
+.post a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}

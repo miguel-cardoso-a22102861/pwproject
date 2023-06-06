@@ -1,0 +1,35 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+{% for projetosPessoais in projetosPessoais %}
+
+
+<div class="container">
+    {{ projetosPessoais.titulo}} <br>
+    <div class="project">
+        {{ projetosPessoais.imagem}}
+
+        <div class="info">
+
+            {{projetosPessoais.descricao}} <br>
+
+            {{ projetosPessoais.anoDeRealizacao}}
+
+            {{ projetosPessoais.participantes}}
+
+            {{ projetosPessoais.linkGithub}}
+
+            {{ projetosPessoais.videoYoutube}}
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endfor %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/laboratorios.css' %}">
+{% endblock %}
