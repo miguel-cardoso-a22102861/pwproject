@@ -83,13 +83,13 @@ def apaga_tarefa_view(request, tarefa_id):
     Tarefa.objects.get(id=tarefa_id).delete()
     return HttpResponseRedirect(reverse('portfolio:tarefas'))
 
-@login_required
+@login_required(login_url="/accounts/login")
 
 def post_apaga_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
-@login_required
-
+@login_required(login_url="/acco")
+@login_required(login_url="/accounts/login")
 def post_edita_view(request, post_id):
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, instance=post)
@@ -105,7 +105,7 @@ def post_edita_view(request, post_id):
 
     return render(request, 'portfolio/blogEdita.html', context)
 
-
+@login_required(login_url="/accounts/login")
 def blog_view(request):
     posts = Post.objects.all()
     context = {

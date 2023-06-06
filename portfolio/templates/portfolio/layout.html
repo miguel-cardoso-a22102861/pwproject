@@ -45,7 +45,7 @@
                 <div class="dropdown-content">
                     <a href="{% url 'portfolio:licenciatura' %}">Tecnologias Existentes</a>
                     <a href="{% url 'portfolio:laboratorios' %}">Laboratórios</a>
-                    <a href="{% url 'portfolio:noticiasPW' %}">Notícias</a>
+                    <a href="{% url 'portfolio:laboratorios' %}">Notícias</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -67,7 +67,9 @@
 
 
 
+
 </header>
+
 <main>
     {% block main %}
     {% endblock main %}
@@ -80,5 +82,11 @@
     </div>
 </footer>
 -->
+<li>
+    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</li>
 
 </html>
