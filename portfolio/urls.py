@@ -26,6 +26,7 @@ urlpatterns = [
     path('home', views.home_page_view, name='home'),
     path('licenciatura', views.licenciatura_page_view, name='licenciatura'),
     path('projetos', views.projetos_page_view, name='projetos'),
+    path('laboratorios', views.laboratorios_view, name='laboratorios'),
     path('tarefas', views.tarefas_page_view, name='tarefas'),
     path('blog', views.blog_view, name='blog'),
     path('tarefasNova', views.tarefasNova_page_view, name='tarefasNova'),
@@ -35,6 +36,8 @@ urlpatterns = [
     path('post_edita/<int:post_id>', views.post_edita_view, name='postEdita'),
     path('post_apaga/<int:post_id>', views.post_apaga_view, name='postApaga'),
     path('tecnologiasUsadas', views.tecnologiasUsadas_view, name='tecnologiasUsadas'),
+    path('tfcs', views.tfcs_view, name='tfcs')
+
 
     
 ]

@@ -145,13 +145,13 @@ class Interesses(models.Model):
         return self.titulo
     
 
-class TFC(models.Model):
+class Tfcs(models.Model):
     titulo = models.CharField(max_length=100)
     autores = models.ManyToManyField(Autor)
     orientador = models.ManyToManyField(Pessoa)
     anoDeRealizacao = models.IntegerField()
-    imagem = models.ImageField(upload_to='images/')
-    resumo = models.CharField(max_length= 500)
+    imagem = models.ImageField(default='default.png', blank=True)
+    resumo = models.CharField(max_length= 1000)
     linkRelatorio = models.URLField(blank= False)
     linkGithub = models.URLField(blank= True)
     linkVideoYt = models.URLField(blank=True)
@@ -183,7 +183,7 @@ class LaboratoriosPW(models.Model):
     def __str__(self):
         return self.titulo
     
-class noticiasPW(models.Model):
+class NoticiasPW(models.Model):
     titulo = models.CharField(max_length= 50, blank= False)
     descricaoNoticia = models.CharField(max_length= 400, blank=False)
     imagemNoticia = models.ImageField(upload_to='images/')

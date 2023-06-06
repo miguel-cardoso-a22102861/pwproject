@@ -1,9 +1,10 @@
 from django.urls import reverse
 import datetime
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import redirect, render
-from .models import Post, Tarefa, TecnologiasPW
+from .models import Tfcs, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
 from .forms import PostForm, TarefaForm
 
 
@@ -47,6 +48,7 @@ def tarefas_page_view(request):
 def post_page_view(request):
     return render(request, 'portfolio/post.html')
 
+@login_required
 def postNovo_page_view(request):
     form = PostForm(request.POST or None)
 
@@ -81,9 +83,12 @@ def apaga_tarefa_view(request, tarefa_id):
     Tarefa.objects.get(id=tarefa_id).delete()
     return HttpResponseRedirect(reverse('portfolio:tarefas'))
 
+@login_required
+
 def post_apaga_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
+@login_required
 
 def post_edita_view(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -117,4 +122,35 @@ def tecnologiasUsadas_view(request):
     }
 
     return render(request, 'portfolio/tecnologiasUsadas.html', context)
+
+def laboratorios_view(request):
+    laboratorios = LaboratoriosPW.objects.all()
+    context = {
+        'laboratorios': laboratorios,
+    }
+    return render(request, 'portfolio/laboratorios.html', context)
+
+def noticiasPW_view(request):
+
+    noticiasPW = NoticiasPW.objects.all()
+    context = {
+        'noticiasPW': noticiasPW,
+    }
+
+    return render(request, 'portfolio/noticiasPW.html', context)
+
+def tfcs_view(request):
+
+    tfcs = Tfcs.objects.all()
+    context = {
+        'tfcs': tfcs,
+    }
+
+    return render(request, 'portfolio/tfcs.html', context)
+
+
+
+
+
+
 
