@@ -25,7 +25,7 @@
             <div class="dropdown">
                 <li><a href="{% url 'portfolio:licenciatura' %}">Sobre Mim</a></li>
                 <div class="dropdown-content">
-                    <a href="{% url 'portfolio:licenciatura' %" }>Licenciatura</a>
+                    <a href="{% url 'portfolio:licenciatura' %}"">Licenciatura</a>
                     <a href="{% url 'portfolio:licenciatura' %}">Educação</a>
                     <a href="{% url 'portfolio:licenciatura' %}">Aptidões e competências pessoais</a>
                     <a href="{% url 'portfolio:licenciatura' %}">Experiência profissional</a>
@@ -74,14 +74,12 @@
     {% block main %}
     {% endblock main %}
 </main>
-<!--
 <footer>
     <div class="footer-bottom" id="footer-bottom">
         <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
         </p>
     </div>
 </footer>
--->
 <li>
     <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
         {% csrf_token %}

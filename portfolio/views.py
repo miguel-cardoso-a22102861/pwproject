@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import redirect, render
-from .models import Projeto, Tfcs, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
+from .models import Pessoa, Projeto, Tfcs, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
 from .forms import PostForm, TarefaForm
 
 
@@ -156,6 +156,14 @@ def projetosPessoais_view(request):
     }
 
     return render(request, 'portfolio/projetosPessoais.html', context)
+
+def pessoas_view(request):
+
+    pessoas = Pessoa.objects.all()
+    context = {
+        'pessoas': pessoas,
+    }
+    return render(request, context)
 
 
 

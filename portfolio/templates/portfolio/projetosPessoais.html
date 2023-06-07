@@ -2,34 +2,39 @@
 
 {% block main %}
 
-{% for projetosPessoais in projetosPessoais %}
+{% for projetoPessoal in projetosPessoais %}
 
 
 <div class="container">
-    {{ projetosPessoais.titulo}} <br>
+    {{ projetoPessoal.titulo}} <br>
     <div class="project">
-        {{ projetosPessoais.imagem}}
+
 
         <div class="info">
 
-            {{projetosPessoais.descricao}} <br>
+            {{projetoPessoal.descricao}} <br>
 
-            {{ projetosPessoais.anoDeRealizacao}}
+            
 
-            {{ projetosPessoais.participantes}}
+            {{ projetoPessoal.anoDeRealizacao}} <br>
 
-            {{ projetosPessoais.linkGithub}}
 
-            {{ projetosPessoais.videoYoutube}}
+            {{ projetoPessoal.linkGithub}} <br>
 
+            {{ projetoPessoal.videoYoutube}} <br>
+
+            {% for participante in projetoPessoal.participantes.all %}
+            <h1>{{ participante }}</h1>
+            {% endfor %}
+
+
+            <img src="{{projetoPessoal.imagem.url}}" alt="Projeto LP2" width="450" height="250">
         </div>
     </div>
 </div>
 
-
-
-
 {% endfor %}
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/laboratorios.css' %}">
 {% endblock %}

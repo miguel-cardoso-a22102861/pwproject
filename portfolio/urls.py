@@ -17,6 +17,11 @@ from django import urls
 from django.urls import include, path
 from . import views
 
+from django.contrib import admin
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
+
 app_name = 'portfolio'
 
 urlpatterns = [
@@ -39,5 +44,9 @@ urlpatterns = [
     path('tecnologiasUsadas', views.tecnologiasUsadas_view, name='tecnologiasUsadas'),
     path('tfcs', views.tfcs_view, name='tfcs'),
     path('projetosPessoais', views.projetosPessoais_view, name='projetosPessoais'),
+    path('pessoas', views.pessoas_view, name= 'pessoas'),
+    
     
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
