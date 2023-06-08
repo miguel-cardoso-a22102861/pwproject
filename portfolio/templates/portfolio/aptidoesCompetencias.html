@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+{% for aptidao in aptidoesCompetencias %}
+
+
+<div class="aptidoes">
+    <h1>Titulo: {{ aptidao.titulo }}</h1>
+
+    <h2>Exemplos de aptidoes:</h2>
+    <p>{{ aptidao.listaProjetos }}</p>
+
+    <h2>Descrição:</h2>
+    <p>{{ aptidao.descricao }}</p>
+
+    {{ aptidao.listaDisciplinas}}
+</div>
+
+{% endfor %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/aptidoesCompetencias.css' %}">
+{% endblock %}

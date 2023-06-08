@@ -1,0 +1,8 @@
+.tfc-box {
+    border: 2px solid #22209e;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Add other desired styles */
+}

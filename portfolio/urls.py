@@ -42,10 +42,29 @@ urlpatterns = [
     path('post_edita/<int:post_id>', views.post_edita_view, name='postEdita'),
     path('post_apaga/<int:post_id>', views.post_apaga_view, name='postApaga'),
     path('tecnologiasUsadas', views.tecnologiasUsadas_view, name='tecnologiasUsadas'),
-    path('tfcs', views.tfcs_view, name='tfcs'),
+    path('tfcsInteresssantes', views.tfcsInteresssantes_view, name='tfcsInteressantes'),
     path('projetosPessoais', views.projetosPessoais_view, name='projetosPessoais'),
     path('pessoas', views.pessoas_view, name= 'pessoas'),
-    
+    path('aptidoesCompetencias', views.aptidoesCompetencias_view, name='aptidoesCompetencias'),
+    path('cursos', views.licenciatura_view, name = 'cursos'),
+    path('cadeira/<int:pk>/', views.cadeiraDetalhes_view, name='cadeiraDetail'),
+    path('playground', views.playground_view, name = 'playground'),
+    path('contactos', views.contactos_view, name = 'contactos'),
+    path('educacao', views.educacao_view, name = 'educacao'),
+    path('experienciaProfissional', views.experienciaProfissional_view, name = 'experienciaProfissional'),
+    path('interesses', views.interesses_view, name='interesses'),
+    path('projetosUniversidade', views.projetosUniversidade_view, name='projetosUniversidade'),
+    path('tecnologiasExistentes', views.tecnologiasExistentes_view, name='tecnologiasExistentes'),
+    path('noticiasPW', views.noticiasPW_view, name='noticiasPW'),
+    path('sobreWebsite', views.sobreWebsite_view, name='sobreWebsite'),
+    path('padroesUsados', views.padroesUsados_view, name='padroesUsados'),
+     
+
+
+
+
+
+
     
 ]
 

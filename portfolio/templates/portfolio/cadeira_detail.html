@@ -1,0 +1,30 @@
+{% extends 'portfolio/licenciatura.html' %}
+
+<body>
+    <h1>{{ cadeira.nome }}</h1>
+    <p>{{ cadeira.descricao }}</p>
+    <p>Semestre: {{ cadeira.semestre }}</p>
+    <p>ECTS: {{ cadeira.ects }}</p>
+    <p>Ano Letivo: {{ cadeira.anoLetivo }}</p>
+    <h3>Professores:</h3>
+    <ul>
+        {% for professor in cadeira.professores.all %}
+        <li>{{ professor.nome }}</li>
+        {% empty %}
+        <li>No professors assigned.</li>
+        {% endfor %}
+    </ul>
+    <h3>Projetos Realizados:</h3>
+    <ul>
+        {% for projeto in cadeira.projetosRealizados.all %}
+        <li>{{ projeto.nome }}</li>
+        {% empty %}
+        <li>No projects available.</li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+{% endblock %}

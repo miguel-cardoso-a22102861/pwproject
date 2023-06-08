@@ -1,0 +1,28 @@
+.aptidoes {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.nome,
+.descricao,
+.disciplinas,
+.projetos {
+    margin-bottom: 1em;
+}
+
+.disciplinas li {
+    margin-bottom: 5px;
+    margin-left: 30px;
+    color: #0e110b;
+}
+
+.descricao {
+    content: attr(data-disciplines);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #0e110b;
+}

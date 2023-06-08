@@ -53,6 +53,9 @@ class Blog(models.Model):
     utilizador = models.OneToOneField(BlogOwner, on_delete=models.CASCADE, unique=True)
     areas = models.ManyToManyField(Area, related_name='blogs')
 
+    def __str__(self):
+        return self.utilizador.nome
+
 class Comentario(models.Model):
     titulo = models.CharField(max_length=50)
     texto = models.TextField()
@@ -84,6 +87,11 @@ class TipoCompetencias(models.Model):
     titulo = models.CharField(max_length=50)
     descricao = models.TextField(max_length=100)
 
+    def __str__(self):
+        return self.titulo
+
+    
+
 class Projeto(models.Model):
     titulo = models.CharField(max_length=50)
     descricao = models.CharField(max_length=500)
@@ -103,12 +111,15 @@ class Cadeira(models.Model):
     semestre = models.IntegerField()
     ects = models.IntegerField()
     anoLetivo = models.IntegerField()
-    professores = models.ManyToManyField(Autor, related_name='cadeiras')
+    professores = models.ManyToManyField(Pessoa, related_name='cadeiras')
     projetosRealizados = models.ManyToManyField(Projeto, related_name='cadeiras')
+
+    def __str__(self):
+        return self.nome
    
 class AptidoesCompetencias(models.Model):
     titulo = models.CharField(max_length=50)
-    descricao = models.TextField(max_length=100)
+    descricao = models.TextField(max_length=700)
     listaProjetos = models.ManyToManyField(Projeto, related_name='aptidoesCompetencias')
     listaDisciplinas = models.ManyToManyField(Cadeira, related_name='aptidoesCompetencias')
 
@@ -116,7 +127,7 @@ class AptidoesCompetencias(models.Model):
 
 
     def __str__(self):
-        return self.nome
+        return self.titulo
 
 class CursoModelo(models.Model):
     nome = models.CharField(max_length=50)
@@ -145,7 +156,7 @@ class Interesses(models.Model):
         return self.titulo
     
 
-class Tfcs(models.Model):
+class TfcsInteresssantes(models.Model):
     titulo = models.CharField(max_length=100)
     autores = models.ManyToManyField(Autor)
     orientador = models.ManyToManyField(Pessoa)
@@ -156,6 +167,9 @@ class Tfcs(models.Model):
     linkGithub = models.URLField(blank= True)
     linkVideoYt = models.URLField(blank=True)
 
+    def __str__(self):
+        return self.titulo
+
 
 class TecnologiasPW(models.Model):
     nome = models.CharField(max_length= 500)
@@ -165,6 +179,22 @@ class TecnologiasPW(models.Model):
     siteOficial = models.URLField(blank= False)
     linguagens = models.CharField(max_length= 500)
     descricao = models.CharField(max_length=750)
+
+    def __str__(self):
+        return self.nome
+
+
+class TecnologiasExistentesPW(models.Model):
+    nome = models.CharField(max_length= 500)
+    anoDeCriacao = models.IntegerField()
+    criador = models.ManyToManyField(Pessoa, related_name='tecnologiasExistentes', blank=True)
+    logotipo = models.ImageField(upload_to='images/',blank=True)
+    siteOficial = models.URLField(blank= False)
+    linguagens = models.CharField(max_length= 500)
+    descricao = models.CharField(max_length=750)
+
+    def __str__(self):
+        return self.nome
 
 class LinkRepos(models.Model):
     titulo = models.CharField(max_length=50)
@@ -193,7 +223,7 @@ class NoticiasPW(models.Model):
         return self.titulo
 
 
-class sobreEsteWS(models.Model):
+class SobreWebsite(models.Model):
     mapaDoSite = models.ImageField(upload_to='images/', blank=False)
     descricaoBD = models.CharField(max_length= 244)
     listaTecnologiasUsadas = models.ManyToManyField(TecnologiasPW, blank=False)
@@ -217,6 +247,38 @@ class Rodape(models.Model):
     linkGithub = models.URLField(blank=False)
     linkRepo = models.OneToOneField(LinkRepos, blank=False , on_delete=models.CASCADE, related_name='rodape')
     pythonAnywhere = models.URLField(blank=False)
+
+
+
+class Educacao(models.Model):
+    titulo = models.CharField(max_length= 250)
+    imagem = models.ImageField(upload_to='images/', blank=True)
+    descricao = models.CharField(max_length=700)
+
+    def __str__(self):
+        return self.titulo
+    
+class PadroesUsados(models.Model):
+    nome = models.CharField(max_length= 500)
+    anoDeCriacao = models.IntegerField()
+    criador = models.ManyToManyField(Pessoa, related_name='padroesUsados', blank=True)
+    logotipo = models.ImageField(upload_to='images/',blank=True)
+    siteOficial = models.URLField(blank= False)
+    linguagens = models.CharField(max_length= 500)
+    descricao = models.CharField(max_length=750)
+
+    def __str__(self):
+        return self.nome
+
+    
+
+
+
+
+
+
+
+
     
     
 
