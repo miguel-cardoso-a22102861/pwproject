@@ -2,27 +2,27 @@
 
 {% block main %}
 
-{% for tecnologiasUsadas in tecnologiasUsadas %}
+{% for tecnologiasUsada in tecnologiasUsadas %}
 
 <article class="primeiro">
 
     <h1>
-        {{ tecnologiasUsadas.nome }}
+        {{ tecnologiasUsada.nome }}
 
 
     </h1>
     <h1>
-        {{ tecnologiasUsadas.anoDeCriacao}}
+        {{ tecnologiasUsada.anoDeCriacao}}
     </h1>
     <h1>
-        {{ tecnologiasUsadas.criador}}
+        {{ tecnologiasUsada.criador}}
     </h1>
-    {{tecnologiasUsadas.siteOficial}}
-    <li><a> {{ tecnologiasUsadas.link }}</a></li>
-    <p>{{ tecnologiasUsadas.descricao }}</p>
-    {{ tecnologiasUsadas.imagem }}
+    {{tecnologiasUsada.siteOficial}}
+    <li><a> {{ tecnologiasUsada.link }}</a></li>
+    <p>{{ tecnologiasUsada.descricao }}</p>
+    <img src="{{ tecnologiasUsada.imagem.url }}" alt="Imagem" width="450" height="250">
 
-    <p>{{ tecnologiasUsadas.data }}</p>
+    <p>{{ tecnologiasUsada.data }}</p>
 
 </article>
 

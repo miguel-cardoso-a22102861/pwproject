@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    display: block;
+    font-size: 0.5em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0.67em;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+article {
+    height: 90vh;
+    background: transparent;
+    padding: 0 4vw;
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+article.primeiro {
+    height: 80vh;
+    background: transparent;
+    padding: 0 4vw;
+    text-align: center;
+    font-size: 1.0rem;
+}
+
+article.laboratorios {
+    height: 80vh;
+    background: transparent;
+    padding: 0 4vw;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Media Queries for different resolutions */
+@media (max-width: 1440px) {
+    article {
+        height: 85vh;
+        font-size: 1.6rem;
+    }
+    
+    article.primeiro,
+    article.laboratorios {
+        height: 75vh;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    article {
+        height: 75vh;
+        font-size: 1.4rem;
+    }
+    
+    article.primeiro,
+    article.laboratorios {
+        height: 65vh;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    article {
+        height: 70vh;
+        font-size: 1.2rem;
+    }
+    
+    article.primeiro,
+    article.laboratorios {
+        height: 60vh;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    article {
+        height: 60vh;
+        font-size: 1rem;
+    }
+    
+    article.primeiro,
+    article.laboratorios {
+        height: 50vh;
+        font-size: 0.8rem;
+    }
+}
+

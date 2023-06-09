@@ -3,10 +3,35 @@
 {% block main %}
 <h1>Lista de Padrões Usados</h1>
 
+{% for padraoUsado in padroesUsados %}
+
+<article class="primeiro">
+
+    <h1>
+        Nome do Padrão:
+
+        {{ padraoUsado.nome }}
+
+
+    </h1>
+    <h1>
+        Funcionalidades do padrão usado:
+
+        {{ padraoUsado.descricao}}
+
+    </h1>
+    <h1> Esquema do Padrao Usado:</h1>
+
+    <img src="{{ padraoUsado.imagem.url }}" alt="Imagem do Padrao Usado" width="250" height="150">
+</article>
+{% endfor %}
+
+
+
 
 
 
 
 {% endblock %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'portfolio/css/noticiasPW.css' %}">
+<link rel="stylesheet" href="{% static 'portfolio/css/padroesUsados.css' %}">
