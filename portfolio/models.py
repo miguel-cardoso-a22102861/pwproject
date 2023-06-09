@@ -260,11 +260,7 @@ class Educacao(models.Model):
     
 class PadroesUsados(models.Model):
     nome = models.CharField(max_length= 500)
-    anoDeCriacao = models.IntegerField()
-    criador = models.ManyToManyField(Pessoa, related_name='padroesUsados', blank=True)
-    logotipo = models.ImageField(upload_to='images/',blank=True)
-    siteOficial = models.URLField(blank= False)
-    linguagens = models.CharField(max_length= 500)
+    imagem = models.ImageField(upload_to='images/',blank=True)
     descricao = models.CharField(max_length=750)
 
     def __str__(self):
