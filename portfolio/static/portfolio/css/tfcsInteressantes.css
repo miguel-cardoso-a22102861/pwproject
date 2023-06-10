@@ -10,10 +10,21 @@
 
 
 .tfc-box {
-    border: 2px solid #22209e;
+    border: 3.5px solid #11101b;
     border-radius: 6px;
-    padding: 10px;
+    padding: 30px;
     margin-bottom: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 1200px;
+    background-color: silver;
+    margin-bottom: 20px;
+    height: 75vh;
     /* Add other desired styles */
+}
+
+.tfcs-center {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 80vh;
 }

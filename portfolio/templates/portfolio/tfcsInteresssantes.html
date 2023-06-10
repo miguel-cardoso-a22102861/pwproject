@@ -5,39 +5,43 @@
 
 {% for tfc in tfcsInteresssantes %}
 
-<div class="tfc-box">
+<div class="tfcs-center">
+
+
+    <div class="tfc-box">
 
 
 
 
 
-    <h1>Titulo:</h1>
+        <h1>Titulo:</h1>
 
-    <p> {{ tfc.titulo }}
-    <p>
+        <p> {{ tfc.titulo }}
+        <p>
 
-    <h1>Ano de Realização:</h1>
+        <h1>Ano de Realização:</h1>
 
-    <h1>{{ tfc.anoDeRealizacao }}</h1>
+        <h1>{{ tfc.anoDeRealizacao }}</h1>
 
-    <h1>Orientador do TFC:</h1>
+        <h1>Orientador do TFC:</h1>
 
-    {% for orientador in tfc.orientador.all %}
-
-
+        {% for orientador in tfc.orientador.all %}
 
 
-    <h1>{{ orientador}}</h1>
-
-    {% endfor %}
-
-    <h1>Resumo do TFC:</h1>
-
-    <h1> {{ tfc.resumo }}</h1>
 
 
-    <img src="{{ tfc.imagem.url }}" alt="Noticias" width="450" height="250">
+        <h1>{{ orientador}}</h1>
 
+        {% endfor %}
+
+        <h1>Resumo do TFC:</h1>
+
+        <h1> {{ tfc.resumo }}</h1>
+
+
+        <img src="{{ tfc.imagem.url }}" alt="Noticias" width="450" height="250">
+
+    </div>
 </div>
 {% endfor %}
 

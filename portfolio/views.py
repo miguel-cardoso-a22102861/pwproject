@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import AptidoesCompetencias, Cadeira, CursoModelo, Educacao, PadroesUsados, Pessoa, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteresssantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
-from .forms import PostForm, TarefaForm
+from .forms import PostForm, ProjetoPessoalForm, TarefaForm
 
 
 # Create your views here.
@@ -75,6 +75,15 @@ def tarefasNova_page_view(request):
     context = {'form': form}
 
     return render(request, 'portfolio/tarefasNova.html', context)
+
+def projetosPessoaisNovo_view(request):
+    form = ProjetoPessoalForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
+    context = {'form': form}
+    return render(request, 'portfolio/projetosPessoaisNovos.html', context)
+
 @login_required(login_url="/accounts/login")
 
 def edita_tarefa_view(request, tarefa_id):

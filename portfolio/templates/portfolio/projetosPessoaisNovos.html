@@ -1,12 +1,12 @@
-{% extends 'portfolio/tarefas.html' %}
+{% extends 'portfolio/projetosPessoais.html' %}
 
 {% block main %}
-<h3>Nova tarefa</h3>
+<h3>Novo Projeto</h3>
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
 
-    <a href="{% url 'portfolio:tarefas' %}" class="btn btn-warning">Cancelar</a>
+    <a href="{% url 'portfolio:projetosPessoais' %}" class="btn btn-warning">Cancelar</a>
     <input type="submit" value="Gravar" class="btn btn-success">
 </form>
 {% endblock %}

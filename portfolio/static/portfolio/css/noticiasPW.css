@@ -4,6 +4,8 @@
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(175, 172, 172, 0.2);
+    width: 1000px;
+    margin-bottom: 30px;
 }
 
 .news-box h2 {
@@ -29,4 +31,11 @@
     width: 450px;
     height: 250px;
     margin-top: 10px;
+}
+
+.news-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
 }

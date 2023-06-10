@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,93 +5,61 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 .image-container {
     position: relative;
     top: 50%;
 }
 
-.image-container:hover .caption {
-    display: block;
-}
-
-.project {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #35353554;
-    border-radius: 5px;
+.projetos-center {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    height: 75vh;
 }
 
-.project h2 {
+.projetos-box {
+    background-color: #11101b;
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(175, 172, 172, 0.2);
+    width: 800px;
+    /* Adjust the width as needed */
+    margin-bottom: 20px;
+}
+
+.projetos h1 {
     font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.project p {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.project img {
-    max-width: 400px;
-    height: auto;
-    margin: 0 20px 20px 0;
-    border-radius: 5px;
-}
-
-.project .info {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.project .participants {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-
-.project .participants a {
-    color: #000;
-    text-decoration: none;
     font-weight: bold;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.project .participants a:hover {
+.projetos h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.projetos p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+
+.projetos h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.projetos-box h2 a:hover {
     text-decoration: underline;
 }
 
-.project .links {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.project .links a {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.project .links a:hover {
-    text-decoration: underline;
-}
-
-.project .competencies {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.project .competencies span {
-    margin-right: 10px;
-    background-color: #ddd;
-    color: #000;
-    padding: 5px 10px;
-    border-radius: 5px;
+.projetos-box img {
+    width: 450px;
+    height: 250px;
+    margin-top: 10px;
 }

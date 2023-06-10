@@ -3,6 +3,67 @@
 {% block main %}
 
 <h3>Contacta-me</h3>
+
+<article class="primeiro">
+    <h1>Sobre mim</h1>
+    <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/miguel.jpg"></a></li>
+
+    <p>
+        Sou o Miguel Cardoso e tenho 21 anos, sou de Odivelas e estou no 3º ano da
+        licenciatura em Engenharia Informática na
+        Universidade Lusófona de Humanidades e Tecnologias.
+        Os links para contacto, encontram-se no rodapé da página.
+        Clickando na minha fotografia consegue-se aceder ao meu Linked In diretamente
+    </p>
+</article>
+
+<div class="contentorContacto">
+    <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>Contacta-me:</h3>
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="phone" placeholder="Número de telemóvel" required>
+        <textarea id="message" rows="4" placeholder="Motivo de contacto:" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+</div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(); reset(); {
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "miguelbcardoso2@gmail.com",
+            Password: "password",
+            To: 'miguelbcardoso2@gmail.com',
+            From: document.getElementById("email").value,
+            Subject: "New Contact Form Enquiry",
+            Body: "Name: " + document.getElementById("name").value +
+                "<br> Email: " + document.getElementById("email").value +
+                "<br> Phone: " + document.getElementById("phone").value +
+                "<br> Message: " + document.getElementById("message").value
+        }).then(
+            message => alert("Mensagem enviada com sucesso")
+        );
+    }
+</script>
+
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
+
+    </ul>
+
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
 {% endblock %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/noticiasPW.css' %}">

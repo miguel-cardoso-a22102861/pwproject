@@ -25,26 +25,22 @@
 <link rel="stylesheet" href="{% static 'portfolio/css/tecnologiasUsadas.css' %}">
 
 
-{% endblock %}
 
+<link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
 
-{% block footer %}
-<footer>
-    <div class="footer-bottom" id="footer-bottom">
-        <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
-        </p>
-    </div>
-</footer>
-<style>
-    /* CSS to position the footer at the bottom */
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+    </ul>
 
-    main {
-        flex: 1;
-    }
-</style>
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
 {% endblock %}

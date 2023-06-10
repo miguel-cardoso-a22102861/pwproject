@@ -1,28 +1,51 @@
-.aptidoes {
-    margin-top: 10px;
+.aptidoes-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+}
+
+.aptidoes-box {
+    background-color: #091329;
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(175, 172, 172, 0.2);
+    width: 700px;
+    /* Adjust the width as needed */
     margin-bottom: 20px;
-    margin-left: 10px;
-    list-style: none;
-    padding: 0;
 }
 
-.nome,
-.descricao,
-.disciplinas,
-.projetos {
-    margin-bottom: 1em;
-}
-
-.disciplinas li {
-    margin-bottom: 5px;
-    margin-left: 30px;
-    color: #0e110b;
-}
-
-.descricao {
-    content: attr(data-disciplines);
-    display: block;
+.aptidoes h1 {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
-    font-size: 14px;
-    color: #0e110b;
+}
+
+.aptidoes h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.aptidoes p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+
+.aptidoes-box h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.aptidoes-box h2 a:hover {
+    text-decoration: underline;
+}
+
+.aptidoes-box img {
+    width: 450px;
+    height: 250px;
+    margin-top: 10px;
 }

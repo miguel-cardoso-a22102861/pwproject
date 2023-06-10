@@ -37,6 +37,7 @@ urlpatterns = [
     path('blog', views.blog_view, name='blog'),
     path('tarefasNova', views.tarefasNova_page_view, name='tarefasNova'),
     path('postNovo', views.postNovo_page_view, name='postNovo'),
+    path('projetoPessoalNovo', views.projetosPessoaisNovo_view, name='projetosPessoaisNovo'),
     path('edita_tarefa/<int:tarefa_id>', views.edita_tarefa_view, name='edita'),
     path('apaga_tarefa/<int:tarefa_id>', views.apaga_tarefa_view, name='apaga'),
     path('post_edita/<int:post_id>', views.post_edita_view, name='postEdita'),

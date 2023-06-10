@@ -5,24 +5,21 @@
 {% for projetoPessoal in projetosPessoais %}
 
 
-<div class="container">
-    {{ projetoPessoal.titulo}} <br>
-    <div class="project">
+<div class="projetos-center">
+
+    <div class="projetos-box">
+        <h1>Titulo do Projeto: {{ projetoPessoal.titulo}} </h1>
 
 
         <div class="info">
 
-            {{projetoPessoal.descricao}} <br>
+            <h1>Sobre o Projeto: {{projetoPessoal.descricao}} </h1>
+            <h1>Ano de realização do projeto: {{ projetoPessoal.anoDeRealizacao}}</h1>
 
 
 
-            {{ projetoPessoal.anoDeRealizacao}} <br>
-
-
-            {{ projetoPessoal.linkGithub}} <br>
-
-            {{ projetoPessoal.videoYoutube}} <br>
-
+            <h1><a href="{{ projetoPessoal.linkGithub }}">GitHub</a></h1>
+            <h1><a href="{{ projetoPessoal.videoYoutube }}">YouTube</a></h1>
             {% for participante in projetoPessoal.participantes.all %}
             <h1>{{ participante }}</h1>
 
@@ -35,6 +32,9 @@
 </div>
 
 {% endfor %}
+<!--
+
+
 <div class="footer-content">
     <h3>Contactos</h3>
     <p>A minha informação</p>
@@ -54,7 +54,27 @@
         </p>
     </div>
 </footer>
+-->
+<a href="{% url 'portfolio:projetosPessoaisNovo' %}" class="btn btn-success btn-block">+ Novo Projeto +</a>
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
 
+    </ul>
+
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
 {% load static %}
-<link rel="stylesheet" href="{% static 'portfolio/css/laboratorios.css' %}">
+<link rel="stylesheet" href="{% static 'portfolio/css/tarefas.css' %}">
+
+
+<link rel="stylesheet" href="{% static 'portfolio/css/projetosPessoais.css' %}">
 {% endblock %}
