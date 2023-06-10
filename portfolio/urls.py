@@ -59,14 +59,10 @@ urlpatterns = [
     path('noticiasPW', views.noticiasPW_view, name='noticiasPW'),
     path('sobreWebsite', views.sobreWebsite_view, name='sobreWebsite'),
     path('padroesUsados', views.padroesUsados_view, name='padroesUsados'),
-     
 
-
-
-
-
-
-    
+    path('novaCadeira', views.novaCadeira_view, name='novaCadeira'),
+    path('editarCadeira/<int:cadeira_id>/', views.editarCadeira_view, name='editarCadeira'),
+    path('apagarCadeira/<int:cadeira_id>/', views.apagarCadeira_view, name='apagarCadeira'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

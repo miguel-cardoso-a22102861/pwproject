@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import Pessoa, Post, Projeto, Tarefa
+from .models import CadeiraV2, Pessoa, Post, Projeto, Tarefa
 
 
 class TarefaForm(ModelForm):
@@ -50,6 +50,13 @@ class PessoaForm(ModelForm):
             'nome': 'Nome da Pessoa',
             'linkPaginaLusofona': 'Link da página da Lusofona',
         }
+
+class CadeiraForm(ModelForm):
+    class Meta:
+        model = CadeiraV2
+                
+        fields = '__all__'
+        
                                                          
 
 class PostForm(ModelForm):
@@ -108,6 +115,10 @@ class ProjetoPessoalForm(ModelForm):
             'linkGithub': 'Link do GitHub do Projeto',
             'videoYoutube': 'Link do YouTube do Projeto',
         }
+        
+
+
+    
 
 
                                                                                        

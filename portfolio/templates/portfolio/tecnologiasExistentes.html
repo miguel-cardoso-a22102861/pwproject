@@ -1,7 +1,37 @@
-{% extends 'portfolio/blog.html' %}
-{% block main %}
-<h3>Tecnologias existentes</h3>
+{% extends 'portfolio/layout.html' %}
 
+{% block main %}
+
+{% for existente in tecnologiasExistentes %}
+
+<article class="primeiro">
+
+    <h1>
+        {{ existente.nome }}
+
+
+    </h1>
+    <h1>
+        {{ existente.anoDeCriacao}}
+    </h1>
+    <h1>
+        {{ existente.criador}}
+    </h1>
+    {{existente.siteOficial}}
+    <li><a> {{ existente.link }}</a></li>
+    <p>{{ existente.descricao }}</p>
+    <img src="{{ existente.logotipo.url }}" alt="Imagem" width="150" height="150">
+
+    <p>{{ tecnologiasUsada.data }}</p>
+
+</article>
+
+
+
+{% endfor %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/tecnologiasUsadas.css' %}">
 
 
 {% endblock %}

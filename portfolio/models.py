@@ -191,7 +191,7 @@ class TecnologiasExistentesPW(models.Model):
     logotipo = models.ImageField(upload_to='images/',blank=True)
     siteOficial = models.URLField(blank= False)
     linguagens = models.CharField(max_length= 500)
-    descricao = models.CharField(max_length=750)
+    descricao = models.CharField(max_length=1400)
 
     def __str__(self):
         return self.nome
@@ -265,8 +265,25 @@ class PadroesUsados(models.Model):
 
     def __str__(self):
         return self.nome
-
     
+
+class ProfessorV2(models.Model):
+    nome = models.CharField(max_length=55)
+
+    def __str__(self):
+        return self.nome
+    
+class CadeiraV2(models.Model):
+    nome = models.CharField(max_length=55)
+    descricao = models.TextField(max_length=300)
+    ects = models.FloatField(default=5.0)
+    ranking = models.IntegerField(default=4)
+    professor = models.ForeignKey(ProfessorV2, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.nome}, {self.professor}"
+    
+
 
 
 

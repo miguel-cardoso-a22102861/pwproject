@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import AptidoesCompetencias, Cadeira, CursoModelo, Educacao, PadroesUsados, Pessoa, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteresssantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
-from .forms import PostForm, ProjetoPessoalForm, TarefaForm
+from .forms import CadeiraForm, PostForm, ProjetoPessoalForm, TarefaForm
 
 
 # Create your views here.
@@ -276,9 +276,35 @@ def padroesUsados_view(request):
     return render(request, 'portfolio/padroesUsados.html', context)
     
 
+def novaCadeira_view(request):
+
+    form = CadeiraForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novaCadeira.html', context)
 
 
 
+def editarCadeira_view(request, cadeira_id):
 
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    form = CadeiraForm(request.POST or request.FILES or None, instance=cadeira)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form, 'cadeira_id': cadeira_id}
+    return render(request, 'portfolio/editarCadeira.html', context)
+
+def apagarCadeira_view(request, cadeira_id):
+
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    cadeira.delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
 

@@ -1,306 +1,75 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
+<h1>Listagem de 3 cadeiras de Eng. Informática:</h1>
+
+<div class="btn-novaCadeira">
+    <a href="{% url 'portfolio:novaCadeira' %}">
+        <button> + </button>
+    </a>
+</div>
 
 
-<head>
-    <title>Licenciatura</title>
-</head>
+{% for cadeira in cadeiras %}
+<div>
+    <h2>{{ cadeira.nome }}</h2>
+    <br>
+    <p>
+        {{ cadeira.descricao }}
+    </p>
+    <br>
+    <p>
+        <br>
+        <b>
+            {{cadeira.ects}}
+        </b>
+        <br>
+        <br>
+        <b>
+            Docente: {{ cadeira.professor}}
+        </b>
+        <br><br>
+    </p>
+    {% if cadeira.ranking <= 0 %} <b>Rank:</b> 👎🏻
+        {% elif cadeira.ranking == 1 %}
+        <b>Rank:</b> ⭐
+        {% elif cadeira.ranking == 2 %}
+        <b>Rank:</b> ⭐⭐
+        {% elif cadeira.ranking == 3 %}
+        <b>Rank:</b> ⭐⭐⭐
+        {% elif cadeira.ranking == 4 %}
+        <b>Rank:</b> ⭐⭐⭐⭐
+        {% elif cadeira.ranking == 5 %}
+        <b>Rank:</b> ⭐⭐⭐⭐⭐
+        {% elif cadeira.ranking > 5 %}
+        <b>Rank:</b> ⭐⭐⭐⭐⭐
+        {% endif %}
+        <br><br>
+        <u><a href="{% url 'portfolio:editarCadeira' cadeira.id %}">Edit</a></u>
+        <u><a href="{% url 'portfolio:apagarCadeira' cadeira.id %}">Delete</a></u>
+</div>
+{% endfor %}
 
-<body>
-    <h1>Licenciatura</h1>
-    {% for curso in cursos %}
-    <h2>{{ curso.nome }}</h2>
-    <p>{{ curso.descricao }}</p>
-    <h3>Cadeiras:</h3>
-    <ul>
-        {% for cadeira in curso.cadeiras.all %}
-        <li><a href="{% url 'cadeira_detail' cadeira.pk %}">{{ cadeira.nome }}</a></li>
-        {% endfor %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+
+
+
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
+
     </ul>
-    {% empty %}
-    <p>No cursos available.</p>
-    {% endfor %}
 
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Ano</th>
-            <th>Semestre</th>
-            <th>ECTS</th>
-            <th>Ano Letivo</th>
-            <th>Tópicos Abordados</th>
-            <th>Ranking</th>
-            <th>Professores</th>
-            <th>Link da Cadeira</th>
-            <th>Projetos Realizados</th>
-        </tr>
-        <tr>
-            <td>Matemática I</td>
-            <td>1º</td>
-            <td>1º</td>
-            <td>6</td>
-            <td>2022/2023</td>
-            <td>Cálculo diferencial, equações lineares</td>
-            <td><span class="stars">★★★★☆</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-1">Prof. João Silva</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-1">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/matematica-I">Matemática I</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                    <li>Projeto 2</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Programação I</td>
-            <td>1º</td>
-            <td>2º</td>
-            <td>6</td>
-            <td>2022/2023</td>
-            <td>Introdução à programação, algoritmos</td>
-            <td><span class="stars">★★★☆☆</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-2">Prof. Maria Santos</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-2">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/programacao-I">Programação I</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                    <li>Projeto 2</li>
-                    <li>Projeto 3</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Banco de Dados</td>
-            <td>2º</td>
-            <td>1º</td>
-            <td>5</td>
-            <td>2023/2024</td>
-            <td>Modelagem de dados, SQL</td>
-            <td><span class="stars">★★★★★</span></td>
-            <td>
-                <a href="https://www.lusofona.pt/professor/nome-professor-3">Prof. Carlos Ferreira</a>
-                <br>
-                <a href="https://www.linkedin.com/in/nome-professor-3">LinkedIn</a>
-            </td>
-            <td><a href="https://www.lusofona.pt/cadeira/banco-de-dados">Banco de Dados</a></td>
-            <td>
-                <ul class="project">
-                    <li>Projeto 1</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
-
-    {% endblock %}
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
+{% endblock %}
