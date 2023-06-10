@@ -1,9 +1,50 @@
-{% extends 'portfolio/licenciatura.html' %}
+{% extends 'portfolio/layout.html' %}
 
-<h2> Educacao</h2>
+{% block main %}
+
+{% for educacao in educacoes %}
+
+<article class="primeiro">
+
+    <h1>
+        {{ educacao.titulo }}
+    </h1>
+    <a href="https://www.ulusofona.pt/">
+        <img src="{{ educacao.imagem.url }}" alt="Imagem" width="225" height="125">
+    </a>
+    <h1>
+        {{ educacao.descricao}}
+    </h1>
+</article>
 
 
 
+{% endfor %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/tecnologiasUsadas.css' %}">
 
 
+{% endblock %}
+
+
+{% block footer %}
+<footer>
+    <div class="footer-bottom" id="footer-bottom">
+        <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+        </p>
+    </div>
+</footer>
+<style>
+    /* CSS to position the footer at the bottom */
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1;
+    }
+</style>
 {% endblock %}

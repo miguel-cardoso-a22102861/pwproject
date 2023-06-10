@@ -1,0 +1,32 @@
+.news-box {
+    background-color: #091329;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(175, 172, 172, 0.2);
+}
+
+.news-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.news-box h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.news-box h2 a:hover {
+    text-decoration: underline;
+}
+
+.news-box h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.news-box img {
+    width: 450px;
+    height: 250px;
+    margin-top: 10px;
+}

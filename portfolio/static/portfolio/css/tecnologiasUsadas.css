@@ -34,7 +34,7 @@ article.primeiro {
     background: transparent;
     padding: 0 4vw;
     text-align: center;
-    font-size: 1.50rem;
+    font-size: 1.0rem;
 }
 
 article.laboratorios {
@@ -43,5 +43,5 @@ article.laboratorios {
     background: transparent;
     padding: 0 4vw;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }

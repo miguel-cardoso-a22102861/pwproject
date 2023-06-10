@@ -2,8 +2,29 @@
 
 {% block main %}
 
+{% for noticia in noticiasPW %}
+<div class="news-box">
+    <h1> {{ noticia.descricaoNoticia }}</h1>
+    <h2><a href="{{ noticia.linkNoticia }}">{{ noticia.titulo }}</a></h2>
+    <img src="{{ noticia.imagemNoticia.url }}" alt="Imagem" width="450" height="250">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endfor %}
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/noticiasPW.css' %}">
+
+
 {% endblock %}

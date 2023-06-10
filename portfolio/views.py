@@ -201,9 +201,14 @@ def contactos_view(request):
 
 
 def educacao_view(request):
-    educacao = Educacao.objects.all()
+    educacoes = Educacao.objects.all()
+    context = {
+       'educacoes':educacoes,
+       
+   }
 
-    return render(request, 'portfolio/contactos.html')
+    return render(request, 'portfolio/educacao.html', context)
+
 
 
 
@@ -239,7 +244,7 @@ def tecnologiasExistentes_view(request):
     
 
 def noticiasPW_view(request):
-    noticiasPW = noticiasPW.objects.all()
+    noticiasPW = NoticiasPW.objects.all()
     context = {
         'noticiasPW': noticiasPW,
     }

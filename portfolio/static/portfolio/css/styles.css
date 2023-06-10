@@ -16,7 +16,7 @@
     }
 
     h2 {
-        font-size: 0.5rem;
+        font-size: 1.0rem;
     }
 
     h3 {
@@ -290,15 +290,22 @@ main>p {
     color: #1fa9cc;
 }
 
+a {
+    font-family: Libre Baskerville, serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #072786;
+    text-decoration: none;
 
+
+}
 
 li,
-a,
 button {
     font-family: Libre Baskerville, serif;
     font-weight: 500;
-    font-size: 16px;
-    color: #fff;
+    font-size: 15px;
+    color: #cdcdcf;
     text-decoration: none;
 
 }
@@ -420,7 +427,8 @@ header {
     }
 
     footer {
-        position: fixed; /* or position: absolute; */
+        position: fixed;
+        /* or position: absolute; */
         bottom: 0;
         width: 100%;
     }
@@ -662,5 +670,5 @@ article.primeiro {
     background: transparent;
     padding: 0 4vw;
     text-align: center;
-    font-size: 1.50rem;
+    font-size: 1.2rem;
 }

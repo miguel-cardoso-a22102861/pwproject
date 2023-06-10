@@ -2,16 +2,17 @@
 
 {% block main %}
 
-{% for laboratorios in laboratorios %}
+{% for laboratorio in laboratorios %}
 
 
 
 <article class="primeiro">
     <h1>
         <p>Titulo</p>
-        {{ laboratorios.titulo}} <br>
+        {{ laboratorio.titulo}} <br>
 
-        {{laboratorios.linkRepos}} <br>
+        {{laboratorio.linkRepos}} <br>
+        <h2><a href="{{ laboratorio.linkRepos }}"></a></h2>
 
         {{ laboratorios.descricaoTopicos}}
 
@@ -19,6 +20,7 @@
         <h1>
             {{ tecnologiasUsadas.anoDeCriacao}}
         </h1>
+
     </h1>
 </article>
 

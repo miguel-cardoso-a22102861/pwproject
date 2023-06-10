@@ -14,7 +14,12 @@
     <h2>Descrição:</h2>
     <p>{{ aptidao.descricao }}</p>
 
+    {% for listaDisciplina in aptidao.listaDisciplinas.all %}
+    <h1>{{ cadeira.nome }}</h1>
+
+    {% endfor %}
     {{ aptidao.listaDisciplinas}}
+
 </div>
 
 {% endfor %}
