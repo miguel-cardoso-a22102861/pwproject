@@ -1,47 +1,41 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
+.tecnologiasUsadas-box {
+    background-color: #091329;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(175, 172, 172, 0.2);
+    width: 1000px;
+    margin-bottom: 30px;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-
-h1 {
-    display: block;
-    font-size: 1.25em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0.67em;
-    margin-right: 0;
-    font-weight: bold;
+.tecnologiasUsadas-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-article {
-    height: 90vh;
-    background: transparent;
-    padding: 0 4vw;
-    text-align: center;
-    font-size: 1.75rem;
-
-
+.tecnologiasUsadas-box h2 a {
+    color: #fff;
+    text-decoration: none;
 }
 
-article.primeiro {
-    /* definindo altura e cor */
-    height: 80vh;
-    background: transparent;
-    padding: 0 4vw;
-    text-align: center;
-    font-size: 1.0rem;
+.tecnologiasUsadas-box h2 a:hover {
+    text-decoration: underline;
 }
 
-article.laboratorios {
-    /* definindo altura e cor */
-    height: 80vh;
-    background: transparent;
-    padding: 0 4vw;
-    text-align: center;
-    font-size: 1.3rem;
+.tecnologiasUsadas-box h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tecnologiasUsadas-box img {
+    width: 450px;
+    height: 250px;
+    margin-top: 10px;
+}
+
+.tecnologiasUsadas-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
 }

@@ -2,8 +2,16 @@
 
 
 {% block main %}
+<h1>Para criar um TFC tem de estar autenticado</h1>
 
-{% for tfc in tfcsInteresssantes %}
+<div class="btn-novaCadeira">
+    <a href="{% url 'portfolio:novoTfc' %}">
+        <button> Novo Tfc </button>
+    </a>
+</div>
+
+
+{% for tfc in tfcsInteressantes %}
 
 <div class="tfcs-center">
 
@@ -40,7 +48,10 @@
 
 
         <img src="{{ tfc.imagem.url }}" alt="Noticias" width="100" height="100">
+        <br>
 
+        <u><a href="{% url 'portfolio:editarTfc' tfc.id %}">Editar TFC</a></u>
+        <u><a href="{% url 'portfolio:apagarTfc' tfc.id %}">Apagar TFC</a></u>
     </div>
 </div>
 {% endfor %}

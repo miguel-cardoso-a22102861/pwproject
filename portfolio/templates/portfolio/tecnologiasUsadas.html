@@ -2,36 +2,45 @@
 
 {% block main %}
 
-{% for tecnologiasUsada in tecnologiasUsadas %}
+{% for tecnologia in tecnologiasUsadas %}
 
 <article class="primeiro">
 
+    <h2><a href="{{tecnologia.siteOficial}}">{{ tecnologia.nome }}</a></h2>
     <h1>
-        {{ tecnologiasUsada.nome }}
-
-
+        {{ tecnologia.anoDeCriacao}}
     </h1>
+
+    {% for pessoa in tecnologia.criador.all %}
     <h1>
-        {{ tecnologiasUsada.anoDeCriacao}}
+        {{ pessoa.nome }}
     </h1>
-    <h1>
-        {{ tecnologiasUsada.criador}}
-    </h1>
-    {{tecnologiasUsada.siteOficial}}
-    <li><a> {{ tecnologiasUsada.link }}</a></li>
-    <p>{{ tecnologiasUsada.descricao }}</p>
-    <img src="{{ tecnologiasUsada.logotipo.url }}" alt="Imagem" width="450" height="250">
+    {% endfor %}
+    <img src="{{ tecnologia.logotipo.url }}" alt="Imagem" width="125" height="125">
+    <p>{{ tecnologia.descricao }}</p>
 
-    <p>{{ tecnologiasUsada.data }}</p>
+    <p>{{ tecnologia.data }}</p>
 
 </article>
-
-
 
 {% endfor %}
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/tecnologiasUsadas.css' %}">
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
 
+    </ul>
 
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
 {% endblock %}

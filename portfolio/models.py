@@ -156,7 +156,7 @@ class Interesses(models.Model):
         return self.titulo
     
 
-class TfcsInteresssantes(models.Model):
+class TfcsInteressantes(models.Model):
     titulo = models.CharField(max_length=100)
     autores = models.ManyToManyField(Autor)
     orientador = models.ManyToManyField(Pessoa)

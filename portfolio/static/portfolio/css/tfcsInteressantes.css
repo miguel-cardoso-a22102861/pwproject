@@ -11,7 +11,7 @@
 
 .tfc-box {
     border: 3.5px solid #11101b;
-    border-radius: 6px;
+    border-radius: 36px;
     padding: 30px;
     margin-bottom: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -27,4 +27,49 @@
     justify-content: start;
     align-items: center;
     height: 80vh;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 25px 100px;
+}
+
+.container div {
+    float: left;
+    width: 300px;
+    height: 400px;
+    padding: 25px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px grey;
+}
+
+.btn-novaCadeira {
+    margin-top: 20px;
+}
+
+.btn-novaCadeira a {
+    text-decoration: none;
+}
+
+.btn-novaCadeira button {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 36px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 3px;
+    background-color: black;
+    height: 80px;
+    width: 175px;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
 }

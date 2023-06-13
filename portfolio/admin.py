@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import CadeiraV2, Educacao, PadroesUsados, ProfessorV2, Projeto, AptidoesCompetencias, Area, Autor, Blog, BlogOwner, Cadeira, Comentario, Contacto, Curso, CursoModelo, Formacao, Interesses, LaboratoriosPW, LinkRepos, NoticiasPW, Pessoa, Post, Rodape, Tarefa, TecnologiasExistentesPW, TecnologiasPW, TfcsInteresssantes, TipoCompetencias,SobreWebsite
+from .models import CadeiraV2, Educacao, PadroesUsados, ProfessorV2, Projeto, AptidoesCompetencias, Area, Autor, Blog, BlogOwner, Cadeira, Comentario, Contacto, Curso, CursoModelo, Formacao, Interesses, LaboratoriosPW, LinkRepos, NoticiasPW, Pessoa, Post, Rodape, Tarefa, TecnologiasExistentesPW, TecnologiasPW, TfcsInteressantes,TipoCompetencias,SobreWebsite
 
 # Register your models here.
 admin.site.register(Tarefa)
@@ -28,7 +28,7 @@ admin.site.register(SobreWebsite)
 admin.site.register(Contacto)
 admin.site.register(Rodape)
 admin.site.register(Educacao)
-admin.site.register(TfcsInteresssantes)
+admin.site.register(TfcsInteressantes)
 admin.site.register(PadroesUsados)
 admin.site.register(TecnologiasExistentesPW)
 admin.site.register(ProfessorV2)

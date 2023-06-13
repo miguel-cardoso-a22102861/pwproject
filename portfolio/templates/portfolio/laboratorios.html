@@ -2,29 +2,42 @@
 
 {% block main %}
 
-{% for laboratorio in laboratorios %}
+<h1>Laboratorios</h1>
 
+<ul>
+    {% for laboratorio in laboratorios %}
+    <li>
+        <h2>{{ laboratorio.titulo }}</h2>
+        <p>{{ laboratorio.descricaoTopicos }}</p>
 
+        <h3>Links Repos:</h3>
+        <ul>
+            {% for link in laboratorio.linksRepos.all %}
+            <li>
+                <a href="{{ link.linkGithub }}">{{ link.titulo }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
 
-<article class="primeiro">
-    <h1>
-        <p>Titulo</p>
-        {{ laboratorio.titulo}} <br>
-
-        {{laboratorio.linkRepos}} <br>
-        <h2><a href="{{ laboratorio.linkRepos }}"></a></h2>
-
-        {{ laboratorios.descricaoTopicos}}
-
-
-        <h1>
-            {{ tecnologiasUsadas.anoDeCriacao}}
-        </h1>
-
-    </h1>
-</article>
-
+</ul>
 {% endfor %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/laboratorios.css' %}">
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
+
+    </ul>
+
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
 {% endblock %}

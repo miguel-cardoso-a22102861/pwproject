@@ -10,15 +10,13 @@
         display: flex;
     }
 </style>
-
-<h2>Novo Projeto</h2>
+<h3>Novo Projeto</h3>
 <br>
-<form method="POST" action="" enctype="multipart/form-data">
+<form action="{% url 'portfolio:editarProjetosPessoais' projeto_id %}" method="POST">
     {% csrf_token %}
+    {{ form.as_p }}
 
-
-    {{ form.as_p}}
-
+    <a href="{% url 'portfolio:projetosPessoais' %}" role="button" class="btn btn-warning">Cancelar</a>
     <input type="submit" value="Gravar">
 </form>
 

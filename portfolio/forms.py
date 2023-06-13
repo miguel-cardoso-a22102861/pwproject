@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import CadeiraV2, Pessoa, Post, Projeto, Tarefa
+from .models import CadeiraV2, Pessoa, Post, Projeto, Tarefa, TfcsInteressantes
 
 
 class TarefaForm(ModelForm):
@@ -56,8 +56,12 @@ class CadeiraForm(ModelForm):
         model = CadeiraV2
                 
         fields = '__all__'
-        
-                                                         
+
+class TFCsInteressantesForm(forms.ModelForm):
+    class Meta:
+        model = TfcsInteressantes
+        fields = '__all__'
+                                                        
 
 class PostForm(ModelForm):
     class Meta:
@@ -81,40 +85,17 @@ class PostForm(ModelForm):
         }
 
 
-class ProjetoPessoalForm(ModelForm):
+class ProjetoForm(ModelForm):
     class Meta:
         model = Projeto
         fields = '__all__'
 
-        widgets = {
-            'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Título do projeto'}),
-            'descricao': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descrição do projeto'}),
-            'imagem': forms.FileInput(attrs={'class': 'form-control'}),
-            'anoRealizacao': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Ano de realização'}),
-            'participantes': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Participantes'}),
-            'linkGithub': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Link do GitHub'}),
-            'videoYoutube': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Link do YouTube'}),
-        }
 
-        labels = {
-            'titulo': 'Título',
-            'descricao': 'Descrição',
-            'imagem': 'Imagem',
-            'anoRealizacao': 'Ano de Realização',
-            'participantes': 'Participantes',
-            'linkGithub': 'Link do GitHub',
-            'videoYoutube': 'Link do YouTube',
-        }
+class TfcsInteressantesForm(ModelForm):
+    class Meta:
+        model = TfcsInteressantes
+        fields = '__all__'
 
-        help_texts = {
-            'titulo': 'Título do Projeto',
-            'descricao': 'Descrição do Projeto',
-            'imagem': 'Imagem do Projeto',
-            'anoRealizacao': 'Ano de Realização do Projeto',
-            'participantes': 'Participantes do Projeto',
-            'linkGithub': 'Link do GitHub do Projeto',
-            'videoYoutube': 'Link do YouTube do Projeto',
-        }
         
 
 

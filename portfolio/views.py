@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import AptidoesCompetencias, Cadeira, CursoModelo, Educacao, PadroesUsados, Pessoa, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteresssantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
-from .forms import CadeiraForm, PostForm, ProjetoPessoalForm, TarefaForm
+from .models import AptidoesCompetencias, Cadeira, CadeiraV2, CursoModelo, Educacao, PadroesUsados, Pessoa, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteressantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
+from .forms import CadeiraForm, PostForm, ProjetoForm, TarefaForm, TfcsInteressantesForm
 
 
 # Create your views here.
@@ -28,8 +28,7 @@ def home_page_view(request):
     return render(request, 'portfolio/home.html')
 
 
-def licenciatura_page_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+
 
 
 def projetos_page_view(request):
@@ -77,12 +76,14 @@ def tarefasNova_page_view(request):
     return render(request, 'portfolio/tarefasNova.html', context)
 
 def projetosPessoaisNovo_view(request):
-    form = ProjetoPessoalForm(request.POST or None)
+    form = ProjetoForm(request.POST or None)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
     context = {'form': form}
     return render(request, 'portfolio/projetosPessoaisNovos.html', context)
+
+
 
 @login_required(login_url="/accounts/login")
 
@@ -150,11 +151,13 @@ def noticiasPW_view(request):
 
     return render(request, 'portfolio/noticiasPW.html', context)
 
+
+
 def tfcsInteresssantes_view(request):
 
-    tfcsInteresssantes = TfcsInteresssantes.objects.all()
+    tfcsInteressantes = TfcsInteressantes.objects.all()
     context = {
-        'tfcsInteresssantes': tfcsInteresssantes,
+        'tfcsInteressantes': tfcsInteressantes,
     }
 
     return render(request, 'portfolio/tfcsInteresssantes.html', context)
@@ -185,15 +188,15 @@ def aptidoesCompetencias_view(request):
     return render(request, 'portfolio/aptidoesCompetencias.html', context)
 
 def licenciatura_view(request):
-    cursos = CursoModelo.objects.all()
+    cadeiras = CadeiraV2.objects.all()
     context = {
-        'cursos': cursos,
+        'cadeiras': cadeiras,
     }
     return render(request, 'portfolio/licenciatura.html', context)
 
 
 def cadeiraDetalhes_view(request, pk):
-    cadeira = get_object_or_404(Cadeira, pk=pk)
+    cadeira = get_object_or_404(CadeiraV2, pk=pk)
     return render(request, 'cadeira_detail.html', {'cadeira': cadeira})
 
 
@@ -250,7 +253,6 @@ def tecnologiasExistentes_view(request):
     }
 
     return render(request, 'portfolio/tecnologiasExistentes.html', context)
-    
 
 def noticiasPW_view(request):
     noticiasPW = NoticiasPW.objects.all()
@@ -287,11 +289,33 @@ def novaCadeira_view(request):
 
     return render(request, 'portfolio/novaCadeira.html', context)
 
+def novoTfc_view(request):
+
+    form = TfcsInteressantesForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:tfcsInteressantes'))
+    context = {'form': form}
+
+    return render(request, 'portfolio/novoTfc.html', context)
+
+
+def projetosPessoaisNovos_view(request):
+    form = ProjetoForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
+    
+    context = {'form': form}
+
+    return render(request, 'portfolio/projetosPessoaisNovos.html', context)
+
+
 
 
 def editarCadeira_view(request, cadeira_id):
 
-    cadeira = Cadeira.objects.get(id=cadeira_id)
+    cadeira = CadeiraV2.objects.get(id=cadeira_id)
     form = CadeiraForm(request.POST or request.FILES or None, instance=cadeira)
 
     if form.is_valid():
@@ -301,10 +325,35 @@ def editarCadeira_view(request, cadeira_id):
     context = {'form': form, 'cadeira_id': cadeira_id}
     return render(request, 'portfolio/editarCadeira.html', context)
 
+def editarTfc_view(request, tfc_id):
+    tfc = TfcsInteressantes.objects.get(id=tfc_id)
+    form = form = TfcsInteressantesForm(request.POST or request.FILES or None, instance=tfc)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:tfcsInteressantes'))
+    
+    
+    context = {'form': form, 'tfc_id': tfc_id}
+    return render(request, 'portfolio/editarTfc.html', context)
+
+
 def apagarCadeira_view(request, cadeira_id):
 
-    cadeira = Cadeira.objects.get(id=cadeira_id)
+    cadeira = CadeiraV2.objects.get(id=cadeira_id)
     cadeira.delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
+def apagarProjeto_view(request, projeto_id):
+    projeto = Projeto.objects.get(id=projeto_id)
+    projeto.delete()
+    return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
+
+
+
+def apagarTfc_view(request, tfc_id):
+
+    tfc = TfcsInteressantes.objects.get(id=tfc_id)
+    tfc.delete()
+    return HttpResponseRedirect(reverse('portfolio:tfcsInteressantes'))
 
