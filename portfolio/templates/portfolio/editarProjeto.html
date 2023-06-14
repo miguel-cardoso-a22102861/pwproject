@@ -10,9 +10,9 @@
         display: flex;
     }
 </style>
-<h3>Novo Projeto</h3>
+<h3>NovoPost</h3>
 <br>
-<form action="{% url 'portfolio:editarProjetosPessoais' projeto_id %}" method="POST">
+<form action="{% url 'portfolio:editarProjeto' projeto_id %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
 

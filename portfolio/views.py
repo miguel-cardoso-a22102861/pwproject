@@ -75,14 +75,6 @@ def tarefasNova_page_view(request):
 
     return render(request, 'portfolio/tarefasNova.html', context)
 
-def projetosPessoaisNovo_view(request):
-    form = ProjetoForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
-    context = {'form': form}
-    return render(request, 'portfolio/projetosPessoaisNovos.html', context)
-
 
 
 @login_required(login_url="/accounts/login")
@@ -289,6 +281,19 @@ def novaCadeira_view(request):
 
     return render(request, 'portfolio/novaCadeira.html', context)
 
+
+def novoProjeto_view(request):
+
+    form = ProjetoForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novoProjeto.html', context)
+
+
 def novoTfc_view(request):
 
     form = TfcsInteressantesForm(request.POST, request.FILES or None)
@@ -298,17 +303,6 @@ def novoTfc_view(request):
     context = {'form': form}
 
     return render(request, 'portfolio/novoTfc.html', context)
-
-
-def projetosPessoaisNovos_view(request):
-    form = ProjetoForm(request.POST, request.FILES or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
-    
-    context = {'form': form}
-
-    return render(request, 'portfolio/projetosPessoaisNovos.html', context)
 
 
 
@@ -337,17 +331,24 @@ def editarTfc_view(request, tfc_id):
     context = {'form': form, 'tfc_id': tfc_id}
     return render(request, 'portfolio/editarTfc.html', context)
 
+def editarProjeto_view(request, projeto_id):
+
+    projeto = Projeto.objects.get(id=projeto_id)
+    form = ProjetoForm(request.POST or request.FILES or None, instance=projeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
+
+    context = {'form': form, 'projeto_id': projeto_id}
+    return render(request, 'portfolio/editarProjeto.html', context)
+
 
 def apagarCadeira_view(request, cadeira_id):
 
     cadeira = CadeiraV2.objects.get(id=cadeira_id)
     cadeira.delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
-
-def apagarProjeto_view(request, projeto_id):
-    projeto = Projeto.objects.get(id=projeto_id)
-    projeto.delete()
-    return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
 
 
 
@@ -356,4 +357,10 @@ def apagarTfc_view(request, tfc_id):
     tfc = TfcsInteressantes.objects.get(id=tfc_id)
     tfc.delete()
     return HttpResponseRedirect(reverse('portfolio:tfcsInteressantes'))
+
+def apagarProjeto_view(request, projeto_id):
+
+    projeto = Projeto.objects.get(id=projeto_id)
+    projeto.delete()
+    return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
 

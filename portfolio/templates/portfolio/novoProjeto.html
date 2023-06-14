@@ -10,15 +10,12 @@
         display: flex;
     }
 </style>
-
-<h2>Novo Projeto</h2>
+<h3>Nova Projeto:</h3>
 <br>
 <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
 
-
-    {{ form.as_p}}
-
+    {{ form.as_p }}
     <input type="submit" value="Gravar">
 </form>
 

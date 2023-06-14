@@ -48,8 +48,9 @@ urlpatterns = [
 
 
     path('projetosPessoais', views.projetosPessoais_view, name='projetosPessoais'),
-    path('projetosPessoaisNovos', views.projetosPessoaisNovos_view, name='projetosPessoaisNovos'),
-    path('apagarProjeto/<int:projeto_id>/', views.apagarProjeto_view, name='apagarProjeto'),
+    path('novoProjeto', views.novoProjeto_view, name='novoProjeto'),
+    path('editarProjeto/<int:projeto_id>/', views.editarProjeto_view, name='editarProjeto'),
+     path('apagarProjeto/<int:projeto_id>/', views.apagarProjeto_view, name='apagarProjeto'),
 
     path('tecnologiasUsadas', views.tecnologiasUsadas_view, name='tecnologiasUsadas'),
     path('tfcsInteresssantes', views.tfcsInteresssantes_view, name='tfcsInteressantes'),

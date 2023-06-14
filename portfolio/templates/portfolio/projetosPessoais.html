@@ -4,9 +4,9 @@
 <h1>Tem de estar autenticado para introduzir um projeto pessoal</h1>
 
 <div class="btn-novaCadeira">
-    <a href="{% url 'portfolio:projetosPessoaisNovos' %}">
+    <a href="{% url 'portfolio:novoProjeto' %}">
 
-        <button> + Adicionar </button>
+        <button> Novo Projeto: </button>
     </a>
 </div>
 
@@ -41,8 +41,10 @@
 
 
 
-    </div>
+        <u><a href="{% url 'portfolio:editarProjeto' projetoPessoal.id %}">Editar Projeto</a></u>
+        <u><a href="{% url 'portfolio:apagarProjeto' projetoPessoal.id %}">Apagar Projeto</a></u>
 
+    </div>
 
 </div>
 
