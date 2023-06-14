@@ -4,18 +4,15 @@
 
 {% for aptidao in aptidoesCompetencias %}
 
-
 <div class="aptidoes-center">
     <div class="aptidoes-box">
-        <h1> Titulo: {{ aptidao.titulo }}</h1>
+        <h1>Titulo: {{ aptidao.titulo }}</h1>
         <h2>Descrição:</h2>
         <h2>{{ aptidao.descricao }}</h2>
+        <h2>Disciplinas associadas:</h2>
         {% for listaDisciplina in aptidao.listaDisciplinas.all %}
-        <h1>{{ cadeira.nome }}</h1>
-
+        <h1>{{ listaDisciplina.nome }}</h1>
         {% endfor %}
-        {{ aptidao.listaDisciplinas}}
-
     </div>
 </div>
 
@@ -31,12 +28,9 @@
         <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
         <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
         <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
-
     </ul>
-
 </div>
 <div class="footer-bottom" id="footer-bottom">
-    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
-    </p>
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span></p>
 </div>
 {% endblock %}
