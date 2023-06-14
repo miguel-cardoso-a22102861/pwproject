@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    {% load static %}
+    <script src="{% static 'portfolio/js/scripts.js' %}"></script>
 </head>
 <header>
     <div class="logo">Miguel Cardoso
@@ -61,16 +63,24 @@
             <li><a href="{% url 'portfolio:contactos' %}">Contactos</a></li>
             <li><a href="{% url 'portfolio:tarefas' %}">Tarefas</a></li>
             <li><a href="{% url 'portfolio:blog' %}">Blog</a> </li>
-            <li><a href="#footer-bottom">Rodapé</a></li>
             <li>
                 <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit">Logout</button>
+                    <button class="clean-button" type="submit">Logout</button>
                 </form>
             </li>
         </ul>
     </nav>
 </header>
+<script>
+    hamburguer = document.querySelector('.hamburguer');
+    hamburguer.onclick = function () {
+        navBar = document.querySelector('.nav-bar');
+        navBar.classList.toggle("active");
+
+
+    }
+</script>
 
 <main>
     {% block main %}

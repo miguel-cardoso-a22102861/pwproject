@@ -719,3 +719,39 @@ article.primeiro {
     text-decoration: none;
     color: black;
 }
+
+.clean-button {
+    background-color: white;
+    color: #11101b;
+    border: 2px solid #11101b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.datetime {
+    font-size: 12px;
+    padding: 20px;
+    color: #17c2a5;
+    background: #11101b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    border-right: 10px #009578;
+    width: 250px;
+    font-weight: 500px;
+
+
+}
+
+.time {
+    font-size: 3em;
+    color: #00ffcc;
+
+}
+
+.date {
+    margin-top: 12px;
+    font-size: 1.75em;
+
+
+}

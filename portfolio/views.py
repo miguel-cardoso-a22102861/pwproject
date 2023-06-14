@@ -269,7 +269,7 @@ def padroesUsados_view(request):
     }
     return render(request, 'portfolio/padroesUsados.html', context)
     
-
+@login_required(login_url="/accounts/login")
 def novaCadeira_view(request):
 
     form = CadeiraForm(request.POST, request.FILES or None)
@@ -281,7 +281,7 @@ def novaCadeira_view(request):
 
     return render(request, 'portfolio/novaCadeira.html', context)
 
-
+@login_required(login_url="/accounts/login")
 def novoProjeto_view(request):
 
     form = ProjetoForm(request.POST, request.FILES or None)
@@ -293,7 +293,7 @@ def novoProjeto_view(request):
 
     return render(request, 'portfolio/novoProjeto.html', context)
 
-
+@login_required(login_url="/accounts/login")
 def novoTfc_view(request):
 
     form = TfcsInteressantesForm(request.POST, request.FILES or None)
@@ -306,7 +306,7 @@ def novoTfc_view(request):
 
 
 
-
+@login_required(login_url="/accounts/login")
 def editarCadeira_view(request, cadeira_id):
 
     cadeira = CadeiraV2.objects.get(id=cadeira_id)
@@ -319,6 +319,7 @@ def editarCadeira_view(request, cadeira_id):
     context = {'form': form, 'cadeira_id': cadeira_id}
     return render(request, 'portfolio/editarCadeira.html', context)
 
+@login_required(login_url="/accounts/login")
 def editarTfc_view(request, tfc_id):
     tfc = TfcsInteressantes.objects.get(id=tfc_id)
     form = form = TfcsInteressantesForm(request.POST or request.FILES or None, instance=tfc)
@@ -331,6 +332,7 @@ def editarTfc_view(request, tfc_id):
     context = {'form': form, 'tfc_id': tfc_id}
     return render(request, 'portfolio/editarTfc.html', context)
 
+@login_required(login_url="/accounts/login")
 def editarProjeto_view(request, projeto_id):
 
     projeto = Projeto.objects.get(id=projeto_id)
@@ -344,6 +346,7 @@ def editarProjeto_view(request, projeto_id):
     return render(request, 'portfolio/editarProjeto.html', context)
 
 
+@login_required(login_url="/accounts/login")
 def apagarCadeira_view(request, cadeira_id):
 
     cadeira = CadeiraV2.objects.get(id=cadeira_id)
@@ -351,13 +354,15 @@ def apagarCadeira_view(request, cadeira_id):
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
 
-
+@login_required(login_url="/accounts/login")
 def apagarTfc_view(request, tfc_id):
 
     tfc = TfcsInteressantes.objects.get(id=tfc_id)
     tfc.delete()
     return HttpResponseRedirect(reverse('portfolio:tfcsInteressantes'))
 
+
+@login_required(login_url="/accounts/login")
 def apagarProjeto_view(request, projeto_id):
 
     projeto = Projeto.objects.get(id=projeto_id)

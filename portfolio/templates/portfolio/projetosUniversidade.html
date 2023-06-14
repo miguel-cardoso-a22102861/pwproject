@@ -1,6 +1,75 @@
 {% extends 'portfolio/layout.html' %}
+
 {% block main %}
+<h1>Tem de estar autenticado para introduzir um projeto da universidade</h1>
 
-<h1>Projetos Universidade</h1>
+<div class="btn-novaCadeira">
+    <a href="{% url 'portfolio:novoProjeto' %}">
 
+        <button> Novo Projeto: </button>
+    </a>
+</div>
+
+{% for projetoPessoal in projetosPessoais %}
+
+
+
+
+<div class="projetos-center">
+
+    <div class="projetos-box">
+        <h1>Titulo do Projeto: {{ projetoPessoal.titulo}} </h1>
+
+
+        <div class="info">
+
+            <h1>Sobre o Projeto: {{projetoPessoal.descricao}} </h1>
+            <h1>Ano de realização do projeto: {{ projetoPessoal.anoDeRealizacao}}</h1>
+
+
+
+            <h1><a href="{{ projetoPessoal.linkGithub }}">GitHub</a></h1>
+            <h1><a href="{{ projetoPessoal.videoYoutube }}">YouTube</a></h1>
+            {% for participante in projetoPessoal.participantes.all %}
+            <h1>{{ participante }}</h1>
+
+            {% endfor %}
+
+            <img src="{{projetoPessoal.imagem.url}}" alt="Projeto LP2" width="250" height="150">
+
+        </div>
+
+
+
+        <u><a href="{% url 'portfolio:editarProjeto' projetoPessoal.id %}">Editar Projeto</a></u>
+        <u><a href="{% url 'portfolio:apagarProjeto' projetoPessoal.id %}">Apagar Projeto</a></u>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+
+
+
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img src="/media/instagram.png"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img src="/media/linkedin.png"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img src="/media/githubrodape.png"></a></li>
+
+    </ul>
+
+</div>
+<div class="footer-bottom" id="footer-bottom">
+    <p>copyright &copy;2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span>
+    </p>
+</div>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'portfolio/css/projetosPessoais.css' %}">
 {% endblock %}

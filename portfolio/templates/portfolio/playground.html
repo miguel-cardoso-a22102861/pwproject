@@ -45,8 +45,35 @@
 
         </div>
     </div>
+    <div class="datetime">
+        <div class="time">
+
+        </div>
+        <div class="date">
+
+        </div>
+    </div>
+
+    <p>Butao dark mode</p>
+    <div id="butaoDarkMode">
+        <i class="indicator"></i>
+
+    </div>
+    <script>
+
+    </script>
+
+    <script>
+        const butaoDarkMode = document.getElementById('butaoDarkMode');
+        butaoDarkMode.onclick = function () {
+            butaoDarkMode.classList.toggle('active');
+            body.classList.toggle('active');
+        }
+    </script>
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/playground.css' %}">
+    <script src="{% static 'js/scripts.js' %}"></script>
+
 
     {% endblock %}
