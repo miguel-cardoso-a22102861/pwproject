@@ -65,6 +65,8 @@ urlpatterns = [
 
 
     path('educacao', views.educacao_view, name = 'educacao'),
+    path('quizz', views.quizz_view, name = 'quizz'),
+    
 
 
     path('licenciatura', views.licenciatura_view, name='licenciatura'),

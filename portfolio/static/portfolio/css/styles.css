@@ -755,3 +755,20 @@ article.primeiro {
 
 
 }
+
+.videoPortfolio {
+    text-align: center;
+    padding-bottom: 10vh;
+}
+
+body {
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+}
+
+.site-container {
+    height: 100vh;
+    /* Set the container height to 100% of the viewport height */
+
+    /* Hide vertical scrollbar */
+}

@@ -1,13 +1,16 @@
+import base64
+import io
 from django.urls import reverse
 import datetime
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import AptidoesCompetencias, Cadeira, CadeiraV2, CursoModelo, Educacao, PadroesUsados, Pessoa, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteressantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
+from .models import AptidoesCompetencias, Cadeira, CadeiraV2, CursoModelo, Educacao, PadroesUsados, Pessoa, PontuacaoQuizz, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteressantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
 from .forms import CadeiraForm, PostForm, ProjetoForm, TarefaForm, TfcsInteressantesForm
 
-
+from matplotlib import pyplot as plt
+import urllib
 # Create your views here.
 
 def index_view(request):
@@ -368,4 +371,64 @@ def apagarProjeto_view(request, projeto_id):
     projeto = Projeto.objects.get(id=projeto_id)
     projeto.delete()
     return HttpResponseRedirect(reverse('portfolio:projetosPessoais'))
+
+def pontuacao_quizz(request):
+    score = 0
+    if request.POST['p1'] == 'javascript':
+        score += 1
+
+    if request.POST['p2'] == 'Elementos_Semanticos':
+        score += 1
+
+    if request.POST['p3'] == 'TopRightBotLeft':
+        score += 1
+
+    if request.POST['p4'] == 'def_Function':
+        score += 1
+
+    if request.POST['p5'] == 'conf_url_view_html':
+        score += 1
+
+    return score
+
+def desenha_grafico_resultados(request):
+    pontuacoes = PontuacaoQuizz.objects.all().order_by('pontuacao')
+    lista_nomes = []
+    lista_pontuacao = []
+
+    for person in pontuacoes:
+        lista_nomes.append(person.nome)
+        lista_pontuacao.append(person.pontuacao)
+
+    plt.barh(lista_nomes, lista_pontuacao)
+    plt.xlabel("Pontuações: ")
+    plt.ylabel("Nomes: ")
+    plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
+
+    plt.autoscale()
+
+    fig = plt.gcf()
+    plt.close()
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format='png')
+
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    uri = urllib.parse.quote(string)
+
+    return uri
+
+def quizz_view(request):
+    if request.method == 'POST':
+        n = request.POST['nome']
+        p = pontuacao_quizz(request)
+        r = PontuacaoQuizz(nome=n, pontuacao=p)
+        r.save()
+
+    context = {
+        'data': desenha_grafico_resultados(request),
+    }
+
+    return render(request, 'portfolio/quizz.html', context)
 

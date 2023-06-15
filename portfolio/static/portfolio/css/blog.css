@@ -1,55 +1,51 @@
-main {
-  background-color: rgb(238, 248, 248);
+.aptidoes-center {
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
-  padding: 25px 100px;
+  align-items: center;
+  height: 120vh;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-}
-
-main>* {
-  width: 450px;
-  height: 300px;
-  padding: 25px;
-  margin: 10px;
-  background-color: white;
-  border-radius: 10px;
-  /* arredonda os cantos */
-  box-shadow: 5px 5px 15px grey;
-}
-
-/* blog.css */
-
-.post {
-  background-color: #f2f2f2;
-  padding: 20px;
+.aptidoes-box {
+  background-color: #091329;
+  color: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(175, 172, 172, 0.2);
+  width: 700px;
+  /* Adjust the width as needed */
   margin-bottom: 20px;
 }
 
-.post h2 {
+.aptidoes h1 {
   font-size: 24px;
-  margin-top: 0;
-}
-
-.post p strong {
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.post p {
+.aptidoes h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.aptidoes p {
+  font-size: 16px;
+  line-height: 1.5;
   margin-bottom: 10px;
 }
 
 
-.post a {
-  color: #333;
+.aptidoes-box h2 a {
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
 }
 
-.post a:hover {
+.aptidoes-box h2 a:hover {
   text-decoration: underline;
+}
+
+.aptidoes-box img {
+  width: 450px;
+  height: 250px;
+  margin-top: 10px;
 }

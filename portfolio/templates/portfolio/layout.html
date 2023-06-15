@@ -12,85 +12,91 @@
     {% load static %}
     <script src="{% static 'portfolio/js/scripts.js' %}"></script>
 </head>
-<header>
-    <div class="logo">Miguel Cardoso
+<div class="site-container">
+    <header>
+        <div class="logo">Miguel Cardoso
 
-    </div>
-    <div class="hamburguer">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-    <nav class="nav-bar">
-        <ul>
-            <li>
-                <a href="{% url 'portfolio:home' %}" class="active">Hero Page</a>
-            </li>
-            <div class="dropdown">
-                <li><a href="{% url 'portfolio:home' %}">Sobre Mim</a></li>
-                <div class="dropdown-content">
-                    <a href="{% url 'portfolio:licenciatura' %}"">Licenciatura</a>
+        </div>
+        <div class="hamburguer">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li>
+                    <a href="{% url 'portfolio:home' %}" class="active">Hero Page</a>
+                </li>
+                <div class="dropdown">
+
+                    <li><a href="{% url 'portfolio:home' %}">Sobre Mim</a></li>
+                    <div class="dropdown-content">
+                        <a href="{% url 'portfolio:licenciatura' %}"">Licenciatura</a>
                     <a href=" {% url 'portfolio:educacao' %}">Educação</a>
-                    <a href="{% url 'portfolio:aptidoesCompetencias' %}">Aptidões e competências pessoais</a>
-                    <a href="{% url 'portfolio:experienciaProfissional' %}">Experiência profissional</a>
-                    <a href="{% url 'portfolio:interesses' %}">Interesses</a>
+                        <a href="{% url 'portfolio:aptidoesCompetencias' %}">Aptidões e competências pessoais</a>
+                        <a href="{% url 'portfolio:experienciaProfissional' %}">Experiência profissional</a>
+                        <a href="{% url 'portfolio:interesses' %}">Interesses</a>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <li><a href="{% url 'portfolio:projetosPessoais' %}">Projetos</a></li>
-                <div class="dropdown-content">
-                    <a href="{% url 'portfolio:projetosUniversidade' %}">Projetos da Universidade</a>
-                    <a href="{% url 'portfolio:projetosPessoais' %}">Projetos Pessoais</a>
-                    <a href="{% url 'portfolio:tfcsInteressantes' %}">Projetos TFC interessantes</a>
+                <div class="dropdown">
+                    <li><a href="{% url 'portfolio:projetosPessoais' %}">Projetos</a></li>
+                    <div class="dropdown-content">
+                        <a href="{% url 'portfolio:projetosUniversidade' %}">Projetos da Universidade</a>
+                        <a href="{% url 'portfolio:projetosPessoais' %}">Projetos Pessoais</a>
+                        <a href="{% url 'portfolio:tfcsInteressantes' %}">Projetos TFC interessantes</a>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <li><a href="{% url 'portfolio:tecnologiasExistentes' %}">Programação Web</a></li>
-                <div class="dropdown-content">
-                    <a href="{% url 'portfolio:tecnologiasExistentes' %}">Tecnologias Existentes</a>
-                    <a href="{% url 'portfolio:laboratorios' %}">Laboratórios</a>
-                    <a href="{% url 'portfolio:noticiasPW' %}">Notícias</a>
+                <div class="dropdown">
+                    <li><a href="{% url 'portfolio:tecnologiasExistentes' %}">Programação Web</a></li>
+                    <div class="dropdown-content">
+                        <a href="{% url 'portfolio:tecnologiasExistentes' %}">Tecnologias Existentes</a>
+                        <a href="{% url 'portfolio:laboratorios' %}">Laboratórios</a>
+                        <a href="{% url 'portfolio:noticiasPW' %}">Notícias</a>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <li><a href="{% url 'portfolio:sobreWebsite' %}">Sobre este website</a></li>
-                <div class="dropdown-content">
-                    <a href="{% url 'portfolio:tecnologiasUsadas' %}">Tecnologias Usadas</a>
-                    <a href="{% url 'portfolio:padroesUsados' %}">Padrões Usados</a>
+                <div class="dropdown">
+                    <li><a href="{% url 'portfolio:sobreWebsite' %}">Sobre este website</a></li>
+                    <div class="dropdown-content">
+                        <a href="{% url 'portfolio:tecnologiasUsadas' %}">Tecnologias Usadas</a>
+                        <a href="{% url 'portfolio:padroesUsados' %}">Padrões Usados</a>
+                    </div>
                 </div>
-            </div>
-            <li><a href="{% url 'portfolio:playground' %}">Playground</a></li>
-            <li><a href="{% url 'portfolio:contactos' %}">Contactos</a></li>
-            <li><a href="{% url 'portfolio:tarefas' %}">Tarefas</a></li>
-            <li><a href="{% url 'portfolio:blog' %}">Blog</a> </li>
-            <li>
-                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button class="clean-button" type="submit">Logout</button>
-                </form>
-            </li>
-        </ul>
-    </nav>
-</header>
-<script>
-    hamburguer = document.querySelector('.hamburguer');
-    hamburguer.onclick = function () {
-        navBar = document.querySelector('.nav-bar');
-        navBar.classList.toggle("active");
+                <li><a href="{% url 'portfolio:playground' %}">Playground</a></li>
+                <li><a href="{% url 'portfolio:contactos' %}">Contactos</a></li>
+                <li><a href="{% url 'portfolio:tarefas' %}">Tarefas</a></li>
+                <li><a href="{% url 'portfolio:blog' %}">Blog</a> </li>
+                <li><a href="{% url 'portfolio:quizz' %}">Quizz</a> </li>
+
+                <li>
+                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="clean-button" type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        hamburguer = document.querySelector('.hamburguer');
+        hamburguer.onclick = function () {
+            navBar = document.querySelector('.nav-bar');
+            navBar.classList.toggle("active");
 
 
-    }
-</script>
+        }
+    </script>
 
-<main>
-    {% block main %}
-    {% endblock main %}
-</main>
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
 
-<footer>
-    {% block footer %}
-    {% endblock footer %}
+    <footer>
+        {% block footer %}
+        {% endblock footer %}
 
-</footer>
+    </footer>
+
+</div>
 
 </html>

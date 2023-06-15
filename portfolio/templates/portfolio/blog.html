@@ -1,23 +1,30 @@
 {% extends 'portfolio/layout.html' %}
 {% block main %}
 {% for post in posts %}
-<div class="post">
-  <h2>{{ post.titulo }}</h2>
-  <p><strong>Autor:</strong> {{ post.autor }}</p>
-  <p><strong>Data:</strong> {{ post.data }}</p>
-  <p>{{ post.descricao }}</p>
-  <p><a href="{{ post.link }}">Read more</a></p>
+<div class="aptidoes-center">
+  <div class="aptidoes-box">
 
+
+    <h2>{{ post.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ post.autor }}</p>
+    <p><strong>Data:</strong> {{ post.data }}</p>
+    <p>{{ post.descricao }}</p>
+    <p><a href="{{ post.link }}">Read more</a></p>
+
+
+
+
+    <a href="{% url 'portfolio:postEdita' post.id %}" class="btn btn-warning  btn-sm">
+      Editar
+    </a>
+    <br>
+    <a href="{% url 'portfolio:postNovo' %}" class="btn btn-success btn-block">Novo Post</a>
+    {% endfor %}
+  </div>
 </div>
-
-<a href="{% url 'portfolio:postEdita' post.id %}" class="btn btn-warning  btn-sm"
-  style="float: right; margin-right: 10px">
-  Editar
-</a>
-{% endfor %}
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
-<a href="{% url 'portfolio:postNovo' %}" class="btn btn-success btn-block">Novo Post</a>
+
 
 {% endblock %}

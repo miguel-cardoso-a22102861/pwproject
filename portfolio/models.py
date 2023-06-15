@@ -283,6 +283,13 @@ class CadeiraV2(models.Model):
     def __str__(self):
         return f"{self.nome}, {self.professor}"
     
+class PontuacaoQuizz(models.Model):
+    nome = models.CharField(max_length=25)
+    pontuacao = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.nome
+    
 
 
 
