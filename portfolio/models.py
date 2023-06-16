@@ -289,6 +289,8 @@ class PontuacaoQuizz(models.Model):
 
     def __str__(self):
         return self.nome
+
+
     
 
 

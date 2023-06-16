@@ -90,6 +90,10 @@ urlpatterns = [
     path('noticiasPW', views.noticiasPW_view, name='noticiasPW'),
     path('sobreWebsite', views.sobreWebsite_view, name='sobreWebsite'),
     path('padroesUsados', views.padroesUsados_view, name='padroesUsados'),
+    
+
+    path('webscrapping', views.webscrapping_view, name='webscrapping'),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

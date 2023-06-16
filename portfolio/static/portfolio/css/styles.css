@@ -11,6 +11,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 
+@media screen and (max-width: 1366px) {
+    main>p {
+        font-size: 2rem;
+    }
+
+    .fraseMotivacional {
+        height: 80vh;
+        background: transparent;
+        padding: 0 4vw;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #1fa9cc;
+    }
+
+    a {
+        font-family: Libre Baskerville, serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: #072786;
+        text-decoration: none;
+
+
+    }
+
+    li,
+    button {
+        font-family: Libre Baskerville, serif;
+        font-weight: 500;
+        font-size: 15px;
+        color: #cdcdcf;
+        text-decoration: none;
+
+    }
+
+    .heropage {
+        /* como o menu ocupa 10vh, este tem 90vh para o vermo inteiro. */
+        height: 40vh;
+        background-image: url(../images/coding.avif);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    main {
+        /* como o menu ocupa 10vh, este tem 90vh para o vermo inteiro. */
+        height: 90vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    body {
+        background-image: url(../images/fundo.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        transition: 0.5s;
+    }
+
+    body.active {
+
+        background: #11101b;
+    }
+
+    main {
+        /* como o menu ocupa 10vh, este tem 90vh para o vermo inteiro. */
+        height: 90vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    main>p {
+        font-size: 2rem;
+    }
+
+    .fraseMotivacional {
+        height: 120vh;
+        background: transparent;
+        padding: 0 4vw;
+        text-align: center;
+        font-size: 1.9rem;
+        color: #1fa9cc;
+    }
+
+    .nav-bar ul li a:hover {
+        background: #fefefe;
+        color: #11101b;
+
+        .site-container {
+            height: 100vh;
+
+            /* Set the container height to 100% of the viewport height */
+
+            /* Hide vertical scrollbar */
+
+        }
+
+    }
+}
+
+header {
+
+    width: auto;
+    height: 90px;
+    background: #11101b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+
 @media all and (max-width: 1320px) {
 
     h1 {
@@ -312,16 +428,18 @@ button {
 
 }
 
+/*
 header {
 
     width: auto;
     height: 80px;
-    background: #22b415;
+    background: #11101b;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 100px;
 }
+*/
 
 /* Menu dropdown */
 

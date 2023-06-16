@@ -1,0 +1,47 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+<script>
+    window.onload = function () {
+        tempo();
+    }
+
+    function tempo() {
+        let maxTemp = document.querySelector('.maxTemp');
+        let minTemp = document.querySelector('.minTemp');
+
+        fetch('//api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json')
+            .then(response => response.json())
+            .then(data => {
+                maxTemp.innerHTML = data['data'][0]['tMax'];
+                minTemp.innerHTML = data['data'][0]['tMin'];
+            })
+    }
+</script>
+
+<p style="margin-left: 15px">Temperatura Maxima:
+<p class="maxTemp"></p>Cº
+<p style="margin-left: 30px">Temperatura Minima:
+<p class="minTemp"></p>Cº
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/tecnologiasUsadas.css' %}">
+<div class="footer-content">
+    <h3>Contactos</h3>
+    <p>A minha informação</p>
+    <p>Email: miguelbcardoso7@hotmail.com</p>
+    <ul class="socials">
+        <li><a href="https://www.instagram.com/miguelbcardoso/"><img
+                    src="{% static 'portfolio/media/instagram.png' %}"></a></li>
+        <li><a href="https://www.linkedin.com/in/miguelbcardoso/"><img
+                    src="{% static 'portfolio/media/linkedin.png' %}"></a></li>
+        <li><a href="https://github.com/miguel-cardoso-a22102861"><img
+                    src="{% static 'portfolio/media/githubrodape.png' %}"></a></li>
+    </ul>
+</div>
+
+<div class="footer-bottom" id="footer-bottom">
+    <p>&copy; 2023 Miguel Cardoso. Feito por <span>Miguel Cardoso</span></p>
+</div>
+{% endblock %}

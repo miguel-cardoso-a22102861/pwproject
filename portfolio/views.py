@@ -5,14 +5,17 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
+import requests
+import urllib
+from django.shortcuts import render
+
+
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import AptidoesCompetencias, Cadeira, CadeiraV2, CursoModelo, Educacao, PadroesUsados, Pessoa, PontuacaoQuizz, Projeto, SobreWebsite, TecnologiasExistentesPW, TfcsInteressantes, LaboratoriosPW, NoticiasPW, Post, Tarefa, TecnologiasPW
 from .forms import CadeiraForm, PostForm, ProjetoForm, TarefaForm, TfcsInteressantesForm
 
 from matplotlib import pyplot as plt
-import urllib
 # Create your views here.
-
 def index_view(request):
     agora = datetime.datetime.now()
     local = 'Lisboa'
@@ -238,6 +241,15 @@ def projetosUniversidade_view(request):
        
    }
    return render(request, 'portfolio/projetosUniversidade.html', context)
+
+
+def webscrapping_view(request):
+    
+    return render(request, 'portfolio/webscrapping.html')
+
+   
+
+
 
 
 
